@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-blood-bank">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Bank Depot Sign In | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+  <div class="auth-container">
+    <!-- Form Side -->
+    <div class="auth-form-side">
+      <div>
+        <a href="../index.html" class="auth-brand">
+          <div class="auth-brand-logo" style="background: linear-gradient(135deg, #7C3AED, #5B21B6); display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.69 17.5A2 2 0 0 0 6.26 21h11.48a2 2 0 0 0 1.57-3.5L14 9.31V2"></path><line x1="8.5" y1="2" x2="15.5" y2="2"></line><line x1="14" y1="9.31" x2="10" y2="9.31"></line></svg>
+          </div>
+          <div class="auth-brand-text">Rakt-Setu <span
+              style="font-weight: 500; font-size: 0.8rem; color: var(--purple-color); margin-left: 4px;">Blood
+              Bank</span></div>
+        </a>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1 class="auth-title">Central Depot Portal</h1>
+          <p class="auth-desc">Log in to manage cold-chain blood reserves, fulfill hospital requisitions, and coordinate
+            regional blood logistics.</p>
+        </div>
+
+        <!-- Demo Account Helper Box -->
+        <div class="demo-account-box">
+          <div class="demo-account-info">
+            <strong>Demo Blood Bank:</strong> <code>admin@raktsetu.org</code><br>
+            <span>Password: <code>Password@123</code></span>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-autofill-demo">Auto Fill</button>
+        </div>
+
+        <form id="form-bloodbank-login">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Facility Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="depot@bloodcenter.org" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">
+              <span>Password</span>
+            </label>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+          </div>
+
+          <div id="auth-error-box" class="form-error mb-3"
+            style="display: none; padding: 10px 12px; background: var(--emergency-bg); border: 1px solid var(--emergency-border); border-radius: var(--radius-sm); margin-bottom: 16px;">
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btn-submit" style="width: 100%; padding: 11px;">
+            Sign In to Depot Console
+          </button>
+        </form>
+
+        <div class="auth-footer-nav">
+          Register new blood center? <a href="signup.html" style="color: var(--purple-color);">Register Blood Bank</a>
+        </div>
+
+        <div class="auth-switch-role">
+          <span>Accessing another facility?</span>
+          <div>
+            <a href="../donor/login.html">Donor</a> &bull;
+            <a href="../hospital/login.html">Hospital</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--text-muted);">
+        FDA Cold-Chain Logged &bull; Web Crypto (SHA-256) Architecture
+      </div>
+    </div>
+
+    <!-- Banner Side -->
+    <div class="auth-banner-side">
+      <div
+        style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #D8B4FE;">
+        Cold-Chain Supply Logistics
+      </div>
+
+      <div class="auth-visual-hero">
+        <div class="auth-3d-symbol" style="display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(124,58,237,0.2) 0%, rgba(91,33,182,0.1) 70%); border: 1px solid rgba(216,180,254,0.2); border-radius: 20px; box-shadow: 0 12px 32px rgba(124,58,237,0.25);">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.69 17.5A2 2 0 0 0 6.26 21h11.48a2 2 0 0 0 1.57-3.5L14 9.31V2"></path><line x1="8.5" y1="2" x2="15.5" y2="2"></line><line x1="14" y1="9.31" x2="10" y2="9.31"></line></svg>
+        </div>
+        <div class="auth-insight-card">
+          <div class="auth-insight-label">Storage Integrity</div>
+          <div class="auth-insight-quote">
+            "Maintaining continuous cold-chain storage at 2°C to 6°C preserves red cell viability for 42 days, ensuring
+            maximum therapeutic safety for surgical patients."
+          </div>
+        </div>
+
+        <div class="auth-metrics-grid">
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">2 - 6°C</div>
+            <div class="auth-metric-lbl">Target PRBC Temp</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">5 Days</div>
+            <div class="auth-metric-lbl">Platelet Shelf Life</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">1 Year</div>
+            <div class="auth-metric-lbl">FFP Frozen Life</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--slate-400);">
+        Rakt-Setu Central Logistics Console &bull; Regional Depot Oversight
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script>
+    (async () => {
+      await Guard.redirectIfAuthenticated();
+    })();
+
+    const form = document.getElementById('form-bloodbank-login');
+    const emailInput = document.getElementById('login-email');
+    const passInput = document.getElementById('login-password');
+    const errorBox = document.getElementById('auth-error-box');
+    const autofillBtn = document.getElementById('btn-autofill-demo');
+    const submitBtn = document.getElementById('btn-submit');
+
+    autofillBtn.addEventListener('click', () => {
+      Auth.fillDemoCredentials('BLOOD_BANK', emailInput, passInput);
+      errorBox.style.display = 'none';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verifying depot credentials...';
+
+      const email = emailInput.value.trim();
+      const password = passInput.value;
+
+      try {
+        const res = await Auth.login(email, password, 'BLOOD_BANK');
+        if (res.success) {
+          window.location.href = 'dashboard.html';
+        } else {
+          errorBox.textContent = res.message;
+          errorBox.style.display = 'block';
+        }
+      } catch (err) {
+        errorBox.textContent = 'An unexpected error occurred during blood bank authentication.';
+        errorBox.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In to Depot Console';
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+/* ==========================================================================
+   RAKT-SETU BLOOD BANK DEPOT PORTAL STYLES
+   ========================================================================== */
+
+.bloodbank-hero-banner {
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  gap: 20px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.bloodbank-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--purple-color);
+}
+
+@media (max-width: 768px) {
+  .bloodbank-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
+
+.cold-chain-temp-chip {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--purple-bg);
+  border: 1px solid var(--purple-border);
+  color: var(--purple-color);
+  font-weight: 650;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bloodbank-batch-card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+}
+
+.bloodbank-batch-card:hover {
+  border-color: var(--slate-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.rack-temp-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--success-color);
+  display: inline-block;
+}

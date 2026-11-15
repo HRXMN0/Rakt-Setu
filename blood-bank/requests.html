@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Requisition Queue | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/blood-bank.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">Hospital Requisition Fulfillment Queue</h1>
+            <p class="page-header-subtitle">Review incoming hospital blood orders, allocate cold-storage inventory batches, and dispatch express couriers.</p>
+          </div>
+          <div class="page-header-actions">
+            <span class="topbar-status-chip">
+              <span class="status-dot pulse"></span>
+              <span>Live Order Stream Active</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Pending Clinical Requisitions</h3>
+              <div class="card-subtitle">STAT &amp; Routine hospital demands</div>
+            </div>
+          </div>
+
+          <div class="table-container" style="border: none; border-radius: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Hospital Facility</th>
+                  <th>Component Details</th>
+                  <th>Units</th>
+                  <th>Urgency Tier</th>
+                  <th>Patient Case</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="bloodbank-requests-table">
+                <!-- Rendered by BloodBankEngine.renderRequests -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <script src="../js/data.js?v=2.3"></script>
+  <script src="../js/storage.js?v=2.3"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js?v=2.3"></script>
+  <script src="../js/guard.js?v=2.3"></script>
+  <script src="../js/components.js?v=2.3"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/blood-bank.js?v=2.3"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("BLOOD_BANK", "login.html");
+      if (session) {
+      UIComponents.initShell("BLOOD_BANK", "requests", "Hospital Orders");
+      await BloodBankEngine.renderRequests();
+    
+      }
+    })();
+  </script>
+</body>
+</html>

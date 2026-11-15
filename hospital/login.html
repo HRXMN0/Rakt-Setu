@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-hospital">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Clinical Sign In | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- Form Side -->
+    <div class="auth-form-side">
+      <div>
+        <a href="../index.html" class="auth-brand">
+          <div class="auth-brand-logo" style="background: linear-gradient(135deg, #0284C7, #0369A1); display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="9" y2="18.01"></line><line x1="15" y1="18" x2="15" y2="18.01"></line></svg>
+          </div>
+          <div class="auth-brand-text">Rakt-Setu <span style="font-weight: 500; font-size: 0.8rem; color: var(--info-color); margin-left: 4px;">Hospital</span></div>
+        </a>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1 class="auth-title">Clinical Portal</h1>
+          <p class="auth-desc">Sign in to monitor blood reserves, submit emergency STAT requisitions, or coordinate inter-hospital blood transfers.</p>
+        </div>
+
+        <!-- Demo Account Helper Box -->
+        <div class="demo-account-box">
+          <div class="demo-account-info">
+            <strong>Demo Hospital:</strong> <code>staff@cityhospital.org</code><br>
+            <span>Password: <code>Password@123</code></span>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-autofill-demo">Auto Fill</button>
+        </div>
+
+        <form id="form-hospital-login">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Hospital Official Email</label>
+            <input type="email" id="login-email" class="form-input" placeholder="bloodbank.officer@hospital.org" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">
+              <span>Password</span>
+            </label>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+          </div>
+
+          <div id="auth-error-box" class="form-error mb-3" style="display: none; padding: 10px 12px; background: var(--emergency-bg); border: 1px solid var(--emergency-border); border-radius: var(--radius-sm); margin-bottom: 16px;"></div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btn-submit" style="width: 100%; padding: 11px;">
+            Sign In to Clinical Cockpit
+          </button>
+        </form>
+
+        <div class="auth-footer-nav">
+          Register new medical center? <a href="signup.html" style="color: var(--info-color);">Register Hospital</a>
+        </div>
+
+        <div class="auth-switch-role">
+          <span>Accessing another facility?</span>
+          <div>
+            <a href="../donor/login.html">Donor</a> &bull; 
+            <a href="../blood-bank/login.html">Blood Bank</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--text-muted);">
+        NABH &amp; FDA Compliance Gateway &bull; Web Crypto Hashing
+      </div>
+    </div>
+
+    <!-- Banner Side -->
+    <div class="auth-banner-side">
+      <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #93C5FD;">
+        Emergency Clinical Readiness
+      </div>
+
+      <div class="auth-visual-hero">
+        <div class="auth-3d-symbol" style="display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(2,132,199,0.2) 0%, rgba(3,105,161,0.1) 70%); border: 1px solid rgba(147,197,253,0.2); border-radius: 20px; box-shadow: 0 12px 32px rgba(2,132,199,0.25);">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="9" y2="18.01"></line><line x1="15" y1="18" x2="15" y2="18.01"></line></svg>
+        </div>
+        <div class="auth-insight-card">
+          <div class="auth-insight-label">Clinical Protocol</div>
+          <div class="auth-insight-quote">
+            "In severe trauma hemorrhages, rapid access to uncrossed Packed Red Blood Cells within 15 minutes reduces clinical mortality significantly."
+          </div>
+        </div>
+
+        <div class="auth-metrics-grid">
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">&lt; 15m</div>
+            <div class="auth-metric-lbl">Emergency STAT ETA</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">8 Types</div>
+            <div class="auth-metric-lbl">Component Tracking</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">100%</div>
+            <div class="auth-metric-lbl">Cold-Chain Logged</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--slate-400);">
+        Rakt-Setu Clinical Operations Hub &bull; Level-1 Trauma Network
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script>
+    (async () => {
+      await Guard.redirectIfAuthenticated();
+    })();
+
+    const form = document.getElementById('form-hospital-login');
+    const emailInput = document.getElementById('login-email');
+    const passInput = document.getElementById('login-password');
+    const errorBox = document.getElementById('auth-error-box');
+    const autofillBtn = document.getElementById('btn-autofill-demo');
+    const submitBtn = document.getElementById('btn-submit');
+
+    autofillBtn.addEventListener('click', () => {
+      Auth.fillDemoCredentials('HOSPITAL', emailInput, passInput);
+      errorBox.style.display = 'none';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verifying hospital credentials...';
+
+      const email = emailInput.value.trim();
+      const password = passInput.value;
+
+      try {
+        const res = await Auth.login(email, password, 'HOSPITAL');
+        if (res.success) {
+          window.location.href = 'dashboard.html';
+        } else {
+          errorBox.textContent = res.message;
+          errorBox.style.display = 'block';
+        }
+      } catch (err) {
+        errorBox.textContent = 'An unexpected error occurred during hospital authentication.';
+        errorBox.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In to Clinical Cockpit';
+      }
+    });
+  </script>
+</body>
+</html>

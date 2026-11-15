@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Overview | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/donor.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in">
+        <!-- Consistent Page Header -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">Donor Overview</h1>
+            <p class="page-header-subtitle">Welcome back, <span id="donor-greeting-name" class="font-semibold text-primary">Donor</span>. Here is your donation activity and eligibility status.</p>
+          </div>
+          <div class="page-header-actions">
+            <a href="schedule-donation.html" class="btn btn-primary btn-sm">
+              + Schedule Donation
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Eligibility & Vitals Banner -->
+        <div class="donor-hero-card">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="badge badge-crimson">Voluntary Donor Network</span>
+              <span class="blood-badge" id="donor-hero-bloodgroup">O+</span>
+            </div>
+            <h3 class="text-xl font-bold text-primary">
+              Active Life-Saving Contributor
+            </h3>
+            <p class="text-xs text-secondary mt-1 max-width-md">
+              Your voluntary donations have supported trauma emergencies and surgical recovery across regional hospitals.
+            </p>
+            <div class="flex gap-2 mt-4">
+              <a href="schedule-donation.html" class="btn btn-primary btn-sm">
+                + Schedule Donation
+              </a>
+              <a href="donation-history.html" class="btn btn-secondary btn-sm">
+                Donation History
+              </a>
+            </div>
+          </div>
+
+          <div class="eligibility-countdown-box">
+            <div class="text-xs font-bold text-muted uppercase tracking-wider mb-1">Next Eligible Date</div>
+            <div class="eligibility-days" id="donor-eligibility-days">0</div>
+            <div class="text-xs font-semibold text-primary mt-1">Days Remaining</div>
+            <div class="text-xs text-muted mt-1" id="donor-next-date">Eligible Immediately</div>
+          </div>
+        </div>
+
+        <!-- 3 KPI Metric Cards -->
+        <div class="grid grid-cols-3 gap-6 mb-8">
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">Total Donations</span>
+              <div class="stat-card-icon stat-icon-crimson">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+              </div>
+            </div>
+            <div class="stat-card-value" id="stat-total-donations">7</div>
+            <div class="stat-card-meta text-emerald">
+              <span>✓ Verified in City Registry</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">Estimated Lives Saved</span>
+              <div class="stat-card-icon stat-icon-emerald">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
+            </div>
+            <div class="stat-card-value" id="stat-lives-saved">21</div>
+            <div class="stat-card-meta text-muted">
+              <span>Calculated at 3 components per donation</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">Donor Tier</span>
+              <div class="stat-card-icon stat-icon-amber">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              </div>
+            </div>
+            <div class="stat-card-value" style="font-size: 1.35rem;" id="stat-donor-badge">Silver Donor</div>
+            <div class="stat-card-meta text-muted">
+              <span>3 more donations to Gold tier</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Column Layout: Upcoming Appointment & Recent Donations -->
+        <div class="grid grid-cols-12 gap-6">
+          <div style="grid-column: span 5;">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Next Scheduled Appointment</h3>
+                  <div class="card-subtitle">Active booking slip</div>
+                </div>
+              </div>
+              <div class="card-body" id="upcoming-appointment-box">
+                <!-- Injected by DonorEngine -->
+              </div>
+            </div>
+          </div>
+
+          <div style="grid-column: span 7;">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Recent Donations</h3>
+                  <div class="card-subtitle">Verified contribution records</div>
+                </div>
+                <a href="donation-history.html" class="btn btn-ghost btn-sm">View All History →</a>
+              </div>
+              <div class="table-container" style="border: none; border-radius: 0;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Facility</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="donor-recent-table-body">
+                    <!-- Injected by DonorEngine -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Blood Transfusion Matrix & Clinical Compatibility Engine -->
+        <div class="card mt-8" id="compatibility-matrix-card">
+          <div class="card-header flex justify-between items-center">
+            <div>
+              <h3 class="card-title">Interactive Blood Compatibility &amp; Transfusion Engine</h3>
+              <p class="card-subtitle">Select any ABO/Rh blood group to visually explore compatible donors and recipients across the regional healthcare network.</p>
+            </div>
+            <span class="badge badge-crimson" id="matrix-active-group-badge">Selected: O+</span>
+          </div>
+          <div class="card-body">
+            <!-- Blood Group Selector Buttons -->
+            <div class="flex items-center gap-2 mb-6 flex-wrap" id="matrix-btn-group">
+              <!-- Dynamically rendered -->
+            </div>
+
+            <!-- Two Interactive Panels: Can Donate To & Can Receive From -->
+            <div class="grid grid-cols-2 gap-6">
+              <div class="p-4 rounded-lg border border-slate-200 bg-slate-50" style="border-left: 4px solid var(--success-color);">
+                <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+                  <span class="flex items-center gap-1.5"><span class="status-dot" style="background: var(--success-color); width: 7px; height: 7px; border-radius: 50%;"></span> Can Safely Donate Red Cells To:</span>
+                  <span class="badge badge-emerald" id="matrix-give-count">0 Groups</span>
+                </div>
+                <div class="flex gap-2 flex-wrap items-center mt-3" id="matrix-give-chips" style="min-height: 38px;">
+                  <!-- Dynamic chips -->
+                </div>
+                <div class="text-xs text-muted mt-3" id="matrix-give-desc"></div>
+              </div>
+
+              <div class="p-4 rounded-lg border border-slate-200 bg-slate-50" style="border-left: 4px solid var(--info-color);">
+                <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+                  <span class="flex items-center gap-1.5"><span class="status-dot" style="background: var(--info-color); width: 7px; height: 7px; border-radius: 50%;"></span> Can Safely Receive Red Cells From:</span>
+                  <span class="badge badge-sky" id="matrix-receive-count">0 Groups</span>
+                </div>
+                <div class="flex gap-2 flex-wrap items-center mt-3" id="matrix-receive-chips" style="min-height: 38px;">
+                  <!-- Dynamic chips -->
+                </div>
+                <div class="text-xs text-muted mt-3" id="matrix-receive-desc"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Pass Modal Mount -->
+      <div id="pass-modal-backdrop" class="modal-backdrop" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.65); z-index: 1050; align-items: center; justify-content: center; padding: 16px;">
+        <div class="modal-card" style="background: #ffffff; border-radius: 16px; max-width: 500px; width: 100%; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto;">
+          <button type="button" onclick="document.getElementById('pass-modal-backdrop').style.display='none'" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+          <div id="pass-modal-content" style="padding: 24px;"></div>
+        </div>
+      </div>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <script src="../js/data.js?v=2.2"></script>
+  <script src="../js/storage.js?v=2.2"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js?v=2.2"></script>
+  <script src="../js/guard.js?v=2.2"></script>
+  <script src="../js/components.js?v=2.2"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/donor.js?v=2.2"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("DONOR", "login.html");
+      if (session) {
+      UIComponents.initShell("DONOR", "dashboard", "Overview");
+      await DonorEngine.renderDashboard();
+    
+      }
+    })();
+  </script>
+</body>
+</html>

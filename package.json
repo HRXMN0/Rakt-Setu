@@ -1,0 +1,23 @@
+{
+  "name": "rakt-setu-evaluation-2",
+  "version": "2.0.0",
+  "description": "Rakt-Setu — Connecting Blood. Saving Lives. Evaluation 2 Full-Stack Platform",
+  "main": "server/src/server.js",
+  "scripts": {
+    "start": "node server/src/server.js",
+    "server": "node server/src/server.js",
+    "test": "node server/tests/runAllTests.js",
+    "seed": "node server/src/config/seedData.js"
+  },
+  "keywords": [
+    "raktsetu",
+    "express",
+    "mongodb",
+    "jwt",
+    "multer",
+    "rbac"
+  ],
+  "author": "Rakt-Setu Team",
+  "license": "ISC"
+}
+

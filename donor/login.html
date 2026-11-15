@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-donor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Sign In | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- Form Side -->
+    <div class="auth-form-side">
+      <div>
+        <a href="../index.html" class="auth-brand">
+          <div class="auth-brand-logo" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--crimson-primary), #86161B);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
+          <div class="auth-brand-text">Rakt-Setu <span style="font-weight: 500; font-size: 0.8rem; color: var(--crimson-primary); margin-left: 4px;">Donor</span></div>
+        </a>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1 class="auth-title">Welcome Back</h1>
+          <p class="auth-desc">Sign in to track your donation history, check eligibility, or schedule your next life-saving appointment.</p>
+        </div>
+
+        <!-- Demo Account Helper Box -->
+        <div class="demo-account-box">
+          <div class="demo-account-info">
+            <strong>Demo Account:</strong> <code>donor@raktsetu.org</code><br>
+            <span>Password: <code>Password@123</code></span>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-autofill-demo">Auto Fill</button>
+        </div>
+
+        <form id="form-donor-login">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">
+              <span>Password</span>
+            </label>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+          </div>
+
+          <div id="auth-error-box" class="form-error mb-3" style="display: none; padding: 10px 12px; background: var(--emergency-bg); border: 1px solid var(--emergency-border); border-radius: var(--radius-sm); margin-bottom: 16px;"></div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btn-submit" style="width: 100%; padding: 11px;">
+            Sign In to Donor Portal
+          </button>
+        </form>
+
+        <div class="auth-footer-nav">
+          Don't have a donor profile yet? <a href="signup.html">Create Donor Account</a>
+        </div>
+
+        <div class="auth-switch-role">
+          <span>Accessing another facility?</span>
+          <div>
+            <a href="../hospital/login.html">Hospital</a> &bull; 
+            <a href="../blood-bank/login.html">Blood Bank</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--text-muted);">
+        Secured with browser-side Web Crypto API (SHA-256). Passwords never stored in plain text.
+      </div>
+    </div>
+
+    <!-- Banner Side -->
+    <div class="auth-banner-side">
+      <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--crimson-300);">
+        The Human Lifeline Network
+      </div>
+
+      <div class="auth-visual-hero">
+        <div class="auth-3d-symbol" style="display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, rgba(244,63,94,0.2) 0%, rgba(134,22,27,0.1) 70%); border: 1px solid rgba(254,205,211,0.2); border-radius: 20px; box-shadow: 0 12px 32px rgba(169,43,39,0.25);">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FB7185" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+        </div>
+        <div class="auth-insight-card">
+          <div class="auth-insight-label">Why It Matters</div>
+          <div class="auth-insight-quote">
+            "A single blood donation separates into 3 life-saving components: Packed Red Cells, Platelets, and Plasma. One hour of your time can save up to three lives."
+          </div>
+        </div>
+
+        <div class="auth-metrics-grid">
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">3 Lives</div>
+            <div class="auth-metric-lbl">Per Donation</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">90 Days</div>
+            <div class="auth-metric-lbl">Recovery Cycle</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">100%</div>
+            <div class="auth-metric-lbl">Voluntary Network</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--slate-400);">
+        Rakt-Setu Healthcare Infrastructure &bull; City Health Registry
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script>
+    (async () => {
+      await Guard.redirectIfAuthenticated();
+    })();
+
+    const form = document.getElementById('form-donor-login');
+    const emailInput = document.getElementById('login-email');
+    const passInput = document.getElementById('login-password');
+    const errorBox = document.getElementById('auth-error-box');
+    const autofillBtn = document.getElementById('btn-autofill-demo');
+    const submitBtn = document.getElementById('btn-submit');
+
+    autofillBtn.addEventListener('click', () => {
+      Auth.fillDemoCredentials('DONOR', emailInput, passInput);
+      errorBox.style.display = 'none';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verifying credentials...';
+
+      const email = emailInput.value.trim();
+      const password = passInput.value;
+
+      try {
+        const res = await Auth.login(email, password, 'DONOR');
+        if (res.success) {
+          window.location.href = 'dashboard.html';
+        } else {
+          errorBox.textContent = res.message;
+          errorBox.style.display = 'block';
+        }
+      } catch (err) {
+        errorBox.textContent = 'An unexpected error occurred during authentication.';
+        errorBox.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In to Donor Portal';
+      }
+    });
+  </script>
+</body>
+</html>

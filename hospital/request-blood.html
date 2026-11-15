@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requisition Blood | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/hospital.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in" style="max-width: 860px;">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">Submit Blood Requisition</h1>
+            <p class="page-header-subtitle">Issue routine or priority STAT supply requisitions to certified regional cold-chain blood banks.</p>
+          </div>
+          <div class="page-header-actions">
+            <span class="badge badge-sky">Priority Dispatch Protocol</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Requisition Details</h3>
+          </div>
+          <div class="card-body">
+            <form id="form-hospital-requisition">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="form-group">
+                  <label class="form-label" for="req-blood-group">Blood Group Required *</label>
+                  <select id="req-blood-group" class="form-select" required>
+                    <option value="O+">O+ (Positive)</option>
+                    <option value="O-">O- (Universal Red Cell / Trauma)</option>
+                    <option value="A+">A+ (Positive)</option>
+                    <option value="A-">A- (Negative)</option>
+                    <option value="B+">B+ (Positive)</option>
+                    <option value="B-">B- (Negative)</option>
+                    <option value="AB+">AB+ (Positive)</option>
+                    <option value="AB-">AB- (Negative)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="req-component">Component Type *</label>
+                  <select id="req-component" class="form-select" required>
+                    <option value="Packed RBCs">Packed Red Blood Cells (PRBC)</option>
+                    <option value="Whole Blood">Whole Blood</option>
+                    <option value="Platelets (Apheresis)">Platelets (Apheresis Unit)</option>
+                    <option value="Fresh Frozen Plasma">Fresh Frozen Plasma (FFP)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="form-group">
+                  <label class="form-label" for="req-units">Quantity (Units) *</label>
+                  <input type="number" id="req-units" class="form-input" min="1" max="25" value="2" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="req-urgency">Urgency / Priority *</label>
+                  <select id="req-urgency" class="form-select" required>
+                    <option value="ROUTINE">Routine Scheduled (Next 12-24h)</option>
+                    <option value="HIGH">High Priority (Within 2-4 Hours)</option>
+                    <option value="CRITICAL (STAT)">CRITICAL STAT (&lt; 30 Mins Trauma)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="form-group">
+                  <label class="form-label" for="req-blood-bank">Target Blood Center *</label>
+                  <select id="req-blood-bank" class="form-select" required>
+                    <option value="Patiala Central Blood Centre">Patiala Central Blood Centre (Urban Estate)</option>
+                    <option value="Patiala Blood Bank">Patiala Blood Bank (Rajindra Campus)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="req-dept">Requesting Ward / OT *</label>
+                  <select id="req-dept" class="form-select" required>
+                    <option value="Trauma ICU / OT-2">Trauma ICU / OT-2</option>
+                    <option value="Cardiothoracic Surgery">Cardiothoracic Surgery</option>
+                    <option value="Oncology & Daycare">Oncology &amp; Daycare</option>
+                    <option value="General ICU">General ICU</option>
+                    <option value="Obstetrics & Gynecology">Obstetrics &amp; Gynecology</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="req-case-id">Patient Hospital Case ID / Cross-Match Specimen *</label>
+                <input type="text" id="req-case-id" class="form-input" placeholder="e.g. CAS-ER-9912 / Cross-Match #XM-44" required>
+              </div>
+
+              <div class="pt-4 border-t border-border-light flex justify-end gap-3">
+                <a href="dashboard.html" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Transmit Requisition Order</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/hospital.js"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("HOSPITAL", "login.html");
+      if (session) {
+      UIComponents.initShell("HOSPITAL", "request-blood", "Request Blood");
+      await HospitalEngine.renderRequestBlood();
+    
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requisition Logs &amp; Audit | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/hospital.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">Requisition Logs &amp; Clinical Archive</h1>
+            <p class="page-header-subtitle">Historical audit trail of all routine and emergency blood orders with printable verification slips.</p>
+          </div>
+          <div class="page-header-actions">
+            <a href="request-blood.html" class="btn btn-primary btn-sm">+ Create Requisition</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Completed &amp; Dispatched Requisition Archive</h3>
+              <div class="card-subtitle">NABH Clinical Compliance Ledger</div>
+            </div>
+          </div>
+
+          <div class="table-container" style="border: none; border-radius: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Requested Timestamp</th>
+                  <th>Priority</th>
+                  <th>Component</th>
+                  <th>Quantity</th>
+                  <th>Target Depot</th>
+                  <th>Status</th>
+                  <th>Audit Copy</th>
+                </tr>
+              </thead>
+              <tbody id="request-history-table">
+                <!-- Rendered by HospitalEngine.renderRequestHistory -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/hospital.js"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("HOSPITAL", "login.html");
+      if (session) {
+      UIComponents.initShell("HOSPITAL", "request-history", "Requisition Logs");
+      await HospitalEngine.renderRequestHistory();
+    
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rakt-Setu | One Donation. Three Lives. Infinite Hope.</title>
+  <meta name="description" content="Connecting voluntary blood donors, hospitals, and blood banks across Patiala to coordinate blood availability, donation scheduling, and emergency requests.">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/landing-3d.css">
+</head>
+<body class="rs-landing-body">
+
+  <!-- ========================================================================
+       1. FLOATING GLASS NAVIGATION BAR
+       ======================================================================== -->
+  <header class="rs-nav-floating" id="rs-nav-floating">
+    <a href="#hero" class="rs-nav-brand">
+      <div class="rs-nav-logo-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+      </div>
+      <div class="rs-nav-brand-text">
+        RAKT-<span>SETU</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <ul class="rs-nav-links">
+      <li><a href="#hero" class="rs-nav-link active">Home</a></li>
+      <li><a href="#how-it-works" class="rs-nav-link">How It Works</a></li>
+      <li><a href="#impact" class="rs-nav-link">Our Impact</a></li>
+      <li><a href="#emergency-requests" class="rs-nav-link">Emergency Requests</a></li>
+      <li><a href="#compatibility" class="rs-nav-link">Compatibility</a></li>
+      <li><a href="#portals" class="rs-nav-link">Portals</a></li>
+    </ul>
+
+    <!-- Action Buttons -->
+    <div class="rs-nav-actions">
+      <a href="donor/login.html" class="rs-nav-btn-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        <span>Login</span>
+      </a>
+      <a href="donor/signup.html" class="rs-nav-btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span>Become a Donor</span>
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button class="rs-nav-mobile-toggle" id="rs-mobile-toggle" aria-label="Toggle Navigation Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="rs-mobile-drawer" id="rs-mobile-drawer">
+    <a href="#hero">Home</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#impact">Our Impact</a>
+    <a href="#emergency-requests">Emergency Requests</a>
+    <a href="#compatibility">Blood Compatibility</a>
+    <a href="#portals">Portals &amp; About Us</a>
+    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 4px 0;">
+    <a href="donor/login.html" style="color: var(--crimson-accent);">Login (Donor, Hospital, Blood Bank)</a>
+    <a href="donor/signup.html" style="background: var(--crimson-primary); color: #fff; font-weight: 700; text-align: center;">Register as Blood Donor</a>
+  </div>
+
+  <!-- ========================================================================
+       2. HERO SECTION — IMMERSIVE 3D PERSPECTIVE TUNNEL
+       ======================================================================== -->
+  <section class="tunnel-hero-track" id="hero">
+    <div class="tunnel-hero-sticky" id="tunnel-hero-sticky">
+      
+      <!-- Atmospheric Concentric Depth Rings -->
+      <div class="tunnel-backdrop-rings">
+        <div class="tunnel-ring ring-1"></div>
+        <div class="tunnel-ring ring-2"></div>
+        <div class="tunnel-ring ring-3"></div>
+        <div class="tunnel-ring ring-4"></div>
+        <div class="tunnel-ring ring-5"></div>
+      </div>
+
+      <!-- Perspective Subtle Grid Floor & Ceiling -->
+      <div class="tunnel-grid-perspective"></div>
+
+      <!-- 3D Spatial World Stage (Containing Floating Z-Axis Cards) -->
+      <div class="tunnel-world-stage" id="tunnel-world-stage">
+
+        <!-- Central Animated Beating Heart & Real-Time Biometric Telemetry Core -->
+        <div class="tunnel-heart-core" id="tunnel-heart-core">
+          <!-- Holographic Radar HUD Rings -->
+          <div class="heart-hud-ring ring-outer"></div>
+          <div class="heart-hud-ring ring-mid"></div>
+          <div class="heart-glow-backdrop"></div>
+          <div class="heart-pulse-wave wave-1"></div>
+          <div class="heart-pulse-wave wave-2"></div>
+          
+          <!-- 3D Faceted Ruby Glass Heart SVG -->
+          <div class="heart-svg-wrapper">
+            <svg class="heart-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="rubyGlow" cx="50%" cy="45%" r="55%" fx="45%" fy="35%">
+                  <stop offset="0%" stop-color="#FF6B7A" />
+                  <stop offset="35%" stop-color="#E53945" />
+                  <stop offset="70%" stop-color="#A91424" />
+                  <stop offset="100%" stop-color="#52050E" />
+                </radialGradient>
+                <linearGradient id="arterialAorta" x1="50%" y1="0%" x2="50%" y2="100%">
+                  <stop offset="0%" stop-color="#FFA8B0" />
+                  <stop offset="100%" stop-color="#E53945" />
+                </linearGradient>
+                <linearGradient id="specularGlint" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85" />
+                  <stop offset="50%" stop-color="#FFB3B8" stop-opacity="0.3" />
+                  <stop offset="100%" stop-color="#E53945" stop-opacity="0" />
+                </linearGradient>
+                <filter id="rubyShadowFilter" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="rgba(229,57,69,0.85)" />
+                  <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(255,107,122,0.9)" />
+                </filter>
+              </defs>
+
+              <!-- Stylized Aortic Arch / Superior Vena Cava Connectors -->
+              <path d="M42 22 C42 14, 48 10, 53 10 C57 10, 60 13, 60 18 L55 24 Z" fill="url(#arterialAorta)" opacity="0.9" />
+              <path d="M34 25 C34 18, 38 14, 43 14 L45 22 Z" fill="#C9182B" opacity="0.8" />
+              <path d="M58 20 C62 16, 68 16, 71 21 L64 26 Z" fill="#991120" opacity="0.8" />
+
+              <!-- Main Anatomical Ruby Gem Heart Body -->
+              <path filter="url(#rubyShadowFilter)" fill="url(#rubyGlow)"
+                    d="M50 88 C46 84, 14 62, 14 36 C14 22, 25 14, 37 14 C44 14, 48 18, 50 22 C52 18, 56 14, 63 14 C75 14, 86 22, 86 36 C86 62, 54 84, 50 88 Z" />
+
+              <!-- Internal Luminescent Facets / Refraction Ridges -->
+              <path d="M50 24 L50 84 C50 84, 20 60, 20 36 C20 25, 28 18, 37 18 C44 18, 48 22, 50 24 Z" fill="url(#specularGlint)" opacity="0.35" />
+              
+              <!-- Specular Crystal Highlight Curve -->
+              <path d="M22 34 C22 24, 29 18, 37 18 C41 18, 44 20, 46 23 C42 25, 30 32, 25 45 C23 41, 22 37, 22 34 Z" fill="#FFFFFF" opacity="0.65" />
+              <circle cx="34" cy="24" r="3.5" fill="#FFFFFF" opacity="0.8" />
+              <circle cx="41" cy="28" r="1.8" fill="#FFFFFF" opacity="0.6" />
+            </svg>
+          </div>
+
+          <!-- Holographic ECG Oscilloscope Telemetry Monitor -->
+          <div class="heart-ecg-telemetry">
+            <div class="ecg-monitor-screen">
+              <!-- Animated Real-Time ECG Trace -->
+              <svg class="ecg-svg" viewBox="0 0 200 48" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="ecgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="rgba(255, 77, 90, 0.2)" />
+                    <stop offset="60%" stop-color="#FF4D5A" />
+                    <stop offset="100%" stop-color="#FFFFFF" />
+                  </linearGradient>
+                </defs>
+                <!-- Background Grid Lines -->
+                <line x1="0" y1="24" x2="200" y2="24" stroke="rgba(229,57,69,0.18)" stroke-width="0.8" stroke-dasharray="2,3" />
+                <polyline class="ecg-polyline" points="0,24 25,24 35,24 40,20 45,26 50,24 65,24 70,8 75,42 80,18 85,27 90,24 110,24 125,24 135,24 140,20 145,26 150,24 165,24 170,8 175,42 180,18 185,27 190,24 200,24" />
+              </svg>
+              <!-- Scanning Laser Beam -->
+              <div class="ecg-scan-beam"></div>
+            </div>
+
+            <!-- Precision Telemetry Status Indicators -->
+            <div class="ecg-telemetry-meta">
+              <div class="ecg-pulse-indicator">
+                <span class="pulse-beacon"></span>
+                <span class="ecg-bpm-readout" id="heart-telemetry-bpm">72 BPM</span>
+              </div>
+              <div class="ecg-status-divider"></div>
+              <div class="ecg-status-label">
+                <span class="status-micro-text">SINUS RHYTHM</span>
+                <span class="status-live-tag">LIFELINE ACTIVE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 1: O- Universal Donor -->
+        <div class="tunnel-card" id="card-o-neg">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">UNIVERSAL DONOR</span>
+            <span class="tunnel-card-badge">O- NEG</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            <span class="status-indicator-dot pulse-red"></span>
+            Critical Emergency Red Cells
+          </h3>
+          <p class="tunnel-card-desc">
+            Transfused immediately in trauma emergencies when a patient's blood type is unknown.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Can Give To: <strong>All 8 Blood Types</strong></span>
+            <span style="color: var(--crimson-accent);">Learn More &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Card 2: STAT Emergency Requisition -->
+        <div class="tunnel-card" id="card-stat-trauma">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">STAT REQUISITION</span>
+            <span class="tunnel-card-badge" style="background: rgba(229,57,69,0.3); color:#fff;">ACTIVE</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/><path d="M3 21h18"/><path d="M9 8h6"/><path d="M12 5v6"/></svg>
+            Govt. Rajindra Hospital
+          </h3>
+          <p class="tunnel-card-desc">
+            2 Units O+ Packed RBCs requested for pediatric trauma intensive surgery.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Status: <strong style="color: #f87171;">Dispatch Queued</strong></span>
+            <span style="color: #6ee7b7;">Cold-Chain Verified</span>
+          </div>
+        </div>
+
+        <!-- Card 3: A+ Regional Depot Reserve -->
+        <div class="tunnel-card" id="card-a-pos">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">DEPOT INVENTORY</span>
+            <span class="tunnel-card-badge">A+ POS</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            <span class="status-indicator-dot"></span>
+            42 Units In Reserve
+          </h3>
+          <p class="tunnel-card-desc">
+            High hospital utility for scheduled cardiovascular and general surgeries across Patiala.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Compatibility: <strong>A+, AB+</strong></span>
+            <span>4°C Monitored</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Verified Donor Story -->
+        <div class="tunnel-card" id="card-donor-aarav">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">COMMUNITY HERO</span>
+            <span class="tunnel-card-badge">SILVER DONOR</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            Aarav S. • Patiala
+          </h3>
+          <p class="tunnel-card-desc">
+            "One donation takes 15 minutes of my time, but it touched 21 critical surgical lives."
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Total Donations: <strong>7</strong></span>
+            <strong style="color: var(--crimson-accent);">21 Lives Saved</strong>
+          </div>
+        </div>
+
+        <!-- Card 5: Apheresis & Clinical Awareness -->
+        <div class="tunnel-card" id="card-apheresis-info">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">CLINICAL IMPACT</span>
+            <span class="tunnel-card-badge">1 = 3</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            1 Donation = 3 Lives
+          </h3>
+          <p class="tunnel-card-desc">
+            Whole blood separates into Packed RBCs, Platelets, and Plasma for targeted treatments.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Recovery: <strong>90 Days</strong></span>
+            <span>Safe &amp; Sterile</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Hospital Network -->
+        <div class="tunnel-card" id="card-hosp-rajindra">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">TRAUMA PARTNER</span>
+            <span class="tunnel-card-badge">TIER-1</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            State Trauma Center
+          </h3>
+          <p class="tunnel-card-desc">
+            Direct digital ledger integration enables zero-delay requisition and live courier dispatch.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Network: <strong>18 Hospitals</strong></span>
+            <span>Zero Wastage</span>
+          </div>
+        </div>
+
+        <!-- Card 7: B+ Demand (Secondary) -->
+        <div class="tunnel-card" id="card-b-pos" style="display: none;">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">REGIONAL DEMAND</span>
+            <span class="tunnel-card-badge">B+ POS</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            <span class="status-indicator-dot pulse-red"></span>
+            Surge Protection
+          </h3>
+          <p class="tunnel-card-desc">
+            32% of regional trauma admissions require B+ red cells. Active donor alerts dispatch in minutes.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Registered: <strong>340+ Donors</strong></span>
+            <span>High Readiness</span>
+          </div>
+        </div>
+
+        <!-- Card 8: AB+ Universal Plasma -->
+        <div class="tunnel-card" id="card-ab-pos">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">UNIVERSAL RECIPIENT</span>
+            <span class="tunnel-card-badge">AB+ POS</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            Universal Recipient
+          </h3>
+          <p class="tunnel-card-desc">
+            Can receive red blood cells from any blood type. AB plasma is universal for burn recovery.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Universal Plasma</span>
+            <span style="color: var(--crimson-accent);">Vital Balance</span>
+          </div>
+        </div>
+
+        <!-- Card 9: Blood Bank Depot -->
+        <div class="tunnel-card" id="card-depot-storage">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">COLD-CHAIN DEPOT</span>
+            <span class="tunnel-card-badge">FDA CERT</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            Patiala Central Depot
+          </h3>
+          <p class="tunnel-card-desc">
+            2,500 unit cryogenic capacity with continuous digital temperature telemetry logging.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Capacity: <strong>2,500 Units</strong></span>
+            <span>100% Traceable</span>
+          </div>
+        </div>
+
+        <!-- Card 10: Community Vital (Secondary) -->
+        <div class="tunnel-card" id="card-community-vital" style="display: none;">
+          <div class="tunnel-card-header">
+            <span class="tunnel-card-eyebrow">VOLUNTARY CORE</span>
+            <span class="tunnel-card-badge">ETHICAL</span>
+          </div>
+          <h3 class="tunnel-card-title">
+            100% Voluntary Network
+          </h3>
+          <p class="tunnel-card-desc">
+            Zero commercial sale. Transparent, humane digital coordination across Punjab.
+          </p>
+          <div class="tunnel-card-footer">
+            <span>Verified Registry</span>
+            <span>Public Health First</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Center Cinematic Hero Content (Always Legible & Interactive) -->
+      <div class="tunnel-hero-content" id="tunnel-hero-content">
+        <div class="hero-eyebrow-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          <span>CONNECTING LIVES. SAVING FUTURES.</span>
+        </div>
+
+        <h1 class="tunnel-hero-title">
+          <span>ONE DONATION.</span>
+          <span class="crimson-gradient-text">THREE LIVES.</span>
+          <span>INFINITE HOPE.</span>
+        </h1>
+
+        <p class="tunnel-hero-subtext">
+          Every second matters. Every drop counts. Rakt-Setu connects blood donors, hospitals, and blood banks to make life-saving blood accessible when it matters most.
+        </p>
+
+        <div class="tunnel-hero-ctas">
+          <a href="donor/signup.html" class="btn-hero-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span>Become a Donor</span>
+          </a>
+          <a href="#emergency-requests" class="btn-hero-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Find Blood</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Down Cue Indicator -->
+      <div class="hero-scroll-cue" id="hero-scroll-cue">
+        <div class="scroll-indicator-mouse">
+          <div class="scroll-indicator-wheel"></div>
+        </div>
+        <span>Scroll to Explore</span>
+      </div>
+
+      <!-- Tactical Corner Medical HUD Overlay -->
+      <div class="tunnel-corner-hud hud-top-left" id="hud-top-left">
+        <span class="hud-bracket"></span>
+        <div class="hud-meta">
+          <span class="hud-tag">BIO-TELEMETRY GRID</span>
+          <span class="hud-val">PUNJAB REGIONAL NODE 01</span>
+        </div>
+      </div>
+      <div class="tunnel-corner-hud hud-top-right" id="hud-top-right">
+        <span class="hud-bracket"></span>
+        <div class="hud-meta">
+          <span class="hud-tag">CLINICAL NETWORK</span>
+          <span class="hud-val">18 TRAUMA HOSPITALS SYNCD</span>
+        </div>
+      </div>
+      <div class="tunnel-corner-hud hud-bottom-left" id="hud-bottom-left">
+        <span class="hud-bracket"></span>
+        <div class="hud-meta">
+          <span class="hud-tag">COLD-CHAIN FLEET</span>
+          <span class="hud-val">4.0°C CRYO-STABLE • TRACEABLE</span>
+        </div>
+      </div>
+      <div class="tunnel-corner-hud hud-bottom-right" id="hud-bottom-right">
+        <span class="hud-bracket"></span>
+        <div class="hud-meta">
+          <span class="hud-tag">DONOR READINESS</span>
+          <span class="hud-val">STATUS: OPTIMAL • 98.4%</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. SECTION A — HOW RAKT-SETU WORKS (CONNECT, MATCH, SAVE)
+       ======================================================================== -->
+  <section class="rs-section" id="how-it-works">
+    <div class="rs-section-header">
+      <span class="rs-section-eyebrow">SEAMLESS LIFELINE PIPELINE</span>
+      <h2 class="rs-section-title">How Rakt-Setu Saves Lives</h2>
+      <p class="rs-section-subtitle">
+        Eliminating delays and bureaucratic friction between voluntary donors and critical surgical units.
+      </p>
+    </div>
+
+    <div class="workflow-steps-container">
+      
+      <!-- Step 1: CONNECT -->
+      <div class="workflow-step-card">
+        <div class="step-num-watermark">01</div>
+        <div class="step-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="step-title">1. CONNECT</h3>
+        <p class="step-desc">
+          Voluntary donors and licensed medical centers join the secure network. Real-time eligibility schedules prevent donor burnout and ensure continuous readiness.
+        </p>
+        <div class="step-tag-pill">
+          <span class="status-indicator-dot"></span>
+          <span>Unified Identity Ledger</span>
+        </div>
+      </div>
+
+      <!-- Step 2: MATCH -->
+      <div class="workflow-step-card">
+        <div class="step-num-watermark">02</div>
+        <div class="step-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+        </div>
+        <h3 class="step-title">2. MATCH</h3>
+        <p class="step-desc">
+          Automated compatibility engine cross-references ABO/Rh factors, component suitability, temperature logs, and delivery radius in under three seconds.
+        </p>
+        <div class="step-tag-pill">
+          <span class="status-indicator-dot"></span>
+          <span>Algorithmic Precision</span>
+        </div>
+      </div>
+
+      <!-- Step 3: SAVE -->
+      <div class="workflow-step-card">
+        <div class="step-num-watermark">03</div>
+        <div class="step-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="step-title">3. SAVE</h3>
+        <p class="step-desc">
+          Cold-chain verified blood units reach emergency surgical and trauma theaters before critical clinical windows close, turning intention into survival.
+        </p>
+        <div class="step-tag-pill">
+          <span class="status-indicator-dot"></span>
+          <span>Zero Wastage Protocol</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. SECTION B — LIVE IMPACT (ANIMATED REAL-TIME TELEMETRY)
+       ======================================================================== -->
+  <section class="rs-section" id="impact">
+    <div class="rs-section-header">
+      <span class="rs-section-eyebrow">REGIONAL TELEMETRY &amp; TRANSPARENCY</span>
+      <h2 class="rs-section-title">Verified Healthcare Impact in Real Time</h2>
+      <p class="rs-section-subtitle">
+        Real-time coordination metrics synchronized with Patiala district blood depots, trauma centers, and registered voluntary donors.
+      </p>
+    </div>
+
+    <div class="impact-metrics-grid">
+      <div class="impact-metric-card">
+        <div class="impact-metric-number animate-counter" data-target="1248" data-suffix="+">0</div>
+        <div class="impact-metric-label">Registered Donors</div>
+        <div class="impact-metric-sub">Voluntary verified citizens</div>
+      </div>
+
+      <div class="impact-metric-card">
+        <div class="impact-metric-number animate-counter" data-target="3744" data-suffix="+">0</div>
+        <div class="impact-metric-label">Lives Impacted</div>
+        <div class="impact-metric-sub">Transfusions facilitated</div>
+      </div>
+
+      <div class="impact-metric-card">
+        <div class="impact-metric-number animate-counter" data-target="18" data-suffix="+">0</div>
+        <div class="impact-metric-label">Partner Hospitals</div>
+        <div class="impact-metric-sub">Connected trauma theaters</div>
+      </div>
+
+      <div class="impact-metric-card">
+        <div class="impact-metric-number animate-counter" data-target="480" data-suffix="+">0</div>
+        <div class="impact-metric-label">Blood Units Available</div>
+        <div class="impact-metric-sub">Cold-chain verified inventory</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. SECTION C — EMERGENCY BLOOD REQUESTS ("WHEN EVERY SECOND COUNTS")
+       ======================================================================== -->
+  <section class="rs-section" id="emergency-requests">
+    <div class="emergency-banner-box">
+      <div class="emergency-banner-top">
+        <div>
+          <div class="emergency-pill-tag">
+            <span class="status-indicator-dot pulse-red"></span>
+            <span>CRITICAL REQUISITION PIPELINE</span>
+          </div>
+          <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; color: #fff; margin: 12px 0 6px 0; letter-spacing: -0.02em;">
+            WHEN EVERY SECOND COUNTS.
+          </h2>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); margin: 0; max-width: 620px;">
+            Help connect critical blood requests with the right donors and blood banks across Patiala before clinical windows lapse.
+          </p>
+        </div>
+
+        <a href="hospital/emergency-requests.html" class="rs-nav-btn-primary" style="padding: 14px 28px; font-size: 0.95rem;">
+          <span>Explore Emergency Requests</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Emergency Request Stream Cards -->
+      <div class="emergency-stream-grid">
+        
+        <!-- Requisition 1 -->
+        <div class="emergency-card-stream">
+          <div>
+            <div class="emergency-card-urgency">
+              <span class="urgency-chip urgency-stat">CRITICAL (STAT)</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">12 mins ago</span>
+            </div>
+            <h4 class="emergency-hosp-name">Government Rajindra Hospital</h4>
+            <div class="emergency-specs">
+              <span>Required: <strong class="emergency-blood-badge">O-</strong></span>
+              <span>•</span>
+              <span>2 Units Packed RBCs</span>
+            </div>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin: 0 0 16px 0;">
+              Pediatric trauma intensive surgery. Cold-chain dispatch requested immediately.
+            </p>
+          </div>
+          <a href="donor/login.html" class="emergency-action-btn">
+            <span>Respond as Donor</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Requisition 2 -->
+        <div class="emergency-card-stream">
+          <div>
+            <div class="emergency-card-urgency">
+              <span class="urgency-chip urgency-high">URGENT</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">34 mins ago</span>
+            </div>
+            <h4 class="emergency-hosp-name">Patiala Civil Hospital</h4>
+            <div class="emergency-specs">
+              <span>Required: <strong class="emergency-blood-badge">B+</strong></span>
+              <span>•</span>
+              <span>3 Units Whole Blood</span>
+            </div>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin: 0 0 16px 0;">
+              Highway collision emergency admissions requiring immediate cross-match reserve.
+            </p>
+          </div>
+          <a href="donor/login.html" class="emergency-action-btn">
+            <span>Respond as Donor</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Requisition 3 -->
+        <div class="emergency-card-stream">
+          <div>
+            <div class="emergency-card-urgency">
+              <span class="urgency-chip urgency-stat">CRITICAL (STAT)</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">1 hour ago</span>
+            </div>
+            <h4 class="emergency-hosp-name">Mata Kaushalya Hospital</h4>
+            <div class="emergency-specs">
+              <span>Required: <strong class="emergency-blood-badge">AB-</strong></span>
+              <span>•</span>
+              <span>1 Unit Platelets</span>
+            </div>
+            <p style="font-size: 0.8125rem; color: var(--text-secondary); margin: 0 0 16px 0;">
+              Oncology hematology therapy support. Apheresis platelet donor requested.
+            </p>
+          </div>
+          <a href="donor/login.html" class="emergency-action-btn">
+            <span>Respond as Donor</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. SECTION D — BLOOD GROUP EXPLORER & COMPATIBILITY MATRIX
+       ======================================================================== -->
+  <section class="rs-section" id="compatibility">
+    <div class="rs-section-header">
+      <span class="rs-section-eyebrow">TRANSFUSION SCIENCE</span>
+      <h2 class="rs-section-title">Interactive Blood Compatibility Matrix</h2>
+      <p class="rs-section-subtitle">
+        Select your blood type to inspect clinical red blood cell compatibility rules verified by healthcare standards.
+      </p>
+    </div>
+
+    <!-- 8 Blood Group Buttons -->
+    <div class="blood-groups-grid">
+      <button class="blood-type-card-btn active" data-group="O-">
+        <div class="blood-type-symbol" style="color: var(--crimson-accent);">O-</div>
+        <div class="blood-type-rarity">Universal Donor</div>
+      </button>
+      <button class="blood-type-card-btn" data-group="O+">
+        <div class="blood-type-symbol">O+</div>
+        <div class="blood-type-rarity">High Demand</div>
+      </button>
+      <button class="blood-type-card-btn" data-group="A-">
+        <div class="blood-type-symbol">A-</div>
+        <div class="blood-type-rarity">Rh-Negative</div>
+      </button>
+      <button class="blood-type-card-btn" data-group="A+">
+        <div class="blood-type-symbol">A+</div>
+        <div class="blood-type-rarity">Common</div>
+      </button>
+      <button class="blood-type-card-btn" data-group="B-">
+        <div class="blood-type-symbol">B-</div>
+        <div class="blood-type-rarity">Rare</div>
+      </button>
+      <button class="blood-type-card-btn" data-group="B+">
+        <div class="blood-type-symbol">B+</div>
+        <div class="blood-type-rarity">High Demand</div>
+      </button>
+      <button class="blood-type-card-btn" data-group="AB-">
+        <div class="blood-type-symbol">AB-</div>
+        <div class="blood-type-rarity">Very Rare</div>
+      </button>
+      <button class="blood-type-card-btn" data-group="AB+">
+        <div class="blood-type-symbol">AB+</div>
+        <div class="blood-type-rarity">Universal Recipient</div>
+      </button>
+    </div>
+
+    <!-- Live Dynamic Compatibility Display Panel -->
+    <div class="compat-display-panel">
+      <!-- Column 1: Can Give To -->
+      <div class="compat-panel-col">
+        <div class="compat-col-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><polyline points="5 12 12 5 19 12"/></svg>
+          <h4 class="compat-col-title">Can Donate Red Blood Cells To:</h4>
+        </div>
+        <div class="compat-badges-flex" id="compat-give-pills"></div>
+      </div>
+
+      <!-- Column 2: Can Receive From -->
+      <div class="compat-panel-col">
+        <div class="compat-col-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><polyline points="19 12 12 19 5 12"/></svg>
+          <h4 class="compat-col-title">Can Safely Receive Red Blood Cells From:</h4>
+        </div>
+        <div class="compat-badges-flex" id="compat-receive-pills"></div>
+      </div>
+
+      <!-- Clinical Note Footer Banner -->
+      <div style="grid-column: 1 / -1;">
+        <div class="compat-clinical-note" id="compat-clinical-note">
+          Universal Red Cell Donor: O- red blood cells can be transfused to patients of all blood groups in emergency trauma situations.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. SECTION E — DONOR STORIES / CLINICAL COMMUNITY
+       ======================================================================== -->
+  <section class="rs-section" id="donor-stories">
+    <div class="rs-section-header">
+      <span class="rs-section-eyebrow">HUMAN STORIES</span>
+      <h2 class="rs-section-title">Real Donors. Real Surgeons. Real Lives Saved.</h2>
+      <p class="rs-section-subtitle">
+        Behind every barcode and cold-chain bag in our ledger is a voluntary citizen who gave 15 minutes of their day.
+      </p>
+    </div>
+
+    <div class="stories-grid">
+      
+      <!-- Story 1 -->
+      <div class="story-card">
+        <div>
+          <div class="story-quote-symbol">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="story-quote-text">
+            "Giving blood takes less than 20 minutes from check-in to juice. Knowing my O+ donation directly supported emergency trauma surgeries in Patiala is an unmatched feeling."
+          </p>
+        </div>
+        <div class="story-author-profile">
+          <div class="story-author-avatar">AS</div>
+          <div class="story-author-info">
+            <h4>Aarav Sharma</h4>
+            <p>Regular O+ Voluntary Donor • 7 Donations (21 Lives Saved)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="story-card">
+        <div>
+          <div class="story-quote-symbol">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="story-quote-text">
+            "During critical pediatric trauma, minutes determine survival. Real-time visibility into compatible blood units in regional depots has saved lives repeatedly in our emergency unit."
+          </p>
+        </div>
+        <div class="story-author-profile">
+          <div class="story-author-avatar">MK</div>
+          <div class="story-author-info">
+            <h4>Dr. Manpreet Kaur</h4>
+            <p>Chief Trauma Surgeon • Govt. Rajindra Hospital, Patiala</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="story-card">
+        <div>
+          <div class="story-quote-symbol">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="story-quote-text">
+            "The apheresis process is completely safe and gentle. Donating platelets takes about an hour, and it directly sustains patients fighting aggressive leukemia."
+          </p>
+        </div>
+        <div class="story-author-profile">
+          <div class="story-author-avatar">SS</div>
+          <div class="story-author-info">
+            <h4>Simranjit Singh</h4>
+            <p>Apheresis Platelet Donor • Urban Estate, Patiala</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. SECTION F — FINAL CINEMATIC CALL-TO-ACTION
+       ======================================================================== -->
+  <section class="rs-section" id="portals">
+    <div class="cta-cinematic-banner">
+      <div class="hero-eyebrow-pill" style="margin-bottom: 20px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        <span>STAND TOGETHER FOR HUMANITY</span>
+      </div>
+
+      <h2 class="cta-cinematic-title">
+        BE SOMEONE'S REASON TO LIVE.
+      </h2>
+
+      <p class="cta-cinematic-sub">
+        Your decision to donate could become someone else's second chance. Join thousands of voluntary donors in Punjab's trusted lifeline network.
+      </p>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="donor/signup.html" class="btn-hero-primary" style="padding: 18px 42px; font-size: 1.1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span>Join Rakt-Setu Today</span>
+        </a>
+        <a href="hospital/login.html" class="btn-hero-secondary" style="padding: 18px 36px; font-size: 1.1rem;">
+          <span>Explore Hospital Network</span>
+        </a>
+      </div>
+
+      <!-- Quick Role Portal Links -->
+      <div class="cta-portal-shortcuts">
+        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 700;">Role Portals:</span>
+        <a href="donor/login.html" class="portal-link-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span>Donor Portal</span>
+        </a>
+        <a href="hospital/login.html" class="portal-link-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/><path d="M3 21h18"/><path d="M9 8h6"/><path d="M12 5v6"/></svg>
+          <span>Hospital Center</span>
+        </a>
+        <a href="blood-bank/login.html" class="portal-link-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31L4.62 18.2A2 2 0 0 0 6.36 21h11.28a2 2 0 0 0 1.74-2.8L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+          <span>Blood Bank Depot</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. CLEAN HEALTHCARE PRODUCT FOOTER
+       ======================================================================== -->
+  <footer class="rs-footer-dark">
+    <div class="rs-footer-content">
+      
+      <!-- Col 1: Brand & Purpose -->
+      <div>
+        <div class="rs-footer-brand-title">
+          <div class="rs-nav-logo-badge" style="width: 30px; height: 30px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <span>RAKT-SETU</span>
+        </div>
+        <p class="rs-footer-desc">
+          Connecting voluntary blood donors, medical trauma centers, and licensed blood banks across Patiala through an interconnected digital coordination network.
+        </p>
+        <div style="font-size: 0.75rem; color: var(--crimson-accent); font-weight: 600;">
+          Patiala, Punjab • Digital Blood Coordination Infrastructure
+        </div>
+      </div>
+
+      <!-- Col 2: Navigation Links -->
+      <div>
+        <h5 class="rs-footer-col-title">Navigation</h5>
+        <ul class="rs-footer-col-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#impact">Our Impact</a></li>
+          <li><a href="#emergency-requests">Emergency Requests</a></li>
+          <li><a href="#compatibility">Blood Compatibility</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Role Portals -->
+      <div>
+        <h5 class="rs-footer-col-title">Portals</h5>
+        <ul class="rs-footer-col-links">
+          <li><a href="donor/login.html">Donor Login</a></li>
+          <li><a href="donor/signup.html">Donor Registration</a></li>
+          <li><a href="hospital/login.html">Hospital Portal</a></li>
+          <li><a href="hospital/signup.html">Hospital Registration</a></li>
+          <li><a href="blood-bank/login.html">Blood Bank Depot</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Emergency Resources -->
+      <div>
+        <h5 class="rs-footer-col-title">Emergency</h5>
+        <ul class="rs-footer-col-links">
+          <li><a href="hospital/emergency-requests.html">Active STAT Requisitions</a></li>
+          <li><a href="donor/schedule-donation.html">Book Donation Appointment</a></li>
+          <li><a href="#compatibility">Universal Compatibility</a></li>
+          <li><span style="color: var(--text-muted); font-size: 0.8125rem;">District Emergency: 108 / 104</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="rs-footer-bottom-row">
+      <div>&copy; 2026 Rakt-Setu. All rights reserved. Built for public healthcare resilience.</div>
+      <div style="display: flex; gap: 16px;">
+        <a href="#hero" style="color: var(--text-muted); text-decoration: none;">Back to Top &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/landing-3d.js"></script>
+</body>
+</html>

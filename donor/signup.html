@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-donor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Registration | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- Form Side -->
+    <div class="auth-form-side" style="padding-top: 32px; padding-bottom: 32px;">
+      <div>
+        <a href="../index.html" class="auth-brand">
+          <div class="auth-brand-logo" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--crimson-primary), #86161B);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
+          <div class="auth-brand-text">Rakt-Setu <span style="font-weight: 500; font-size: 0.8rem; color: var(--crimson-primary); margin-left: 4px;">Donor</span></div>
+        </a>
+      </div>
+
+      <div class="auth-card" style="max-width: 440px;">
+        <div class="auth-header">
+          <h1 class="auth-title">Join the Lifeline Registry</h1>
+          <p class="auth-desc">Register as a voluntary donor to receive alerts when emergency patients nearby urgently need your blood type.</p>
+        </div>
+
+        <form id="form-donor-signup">
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full Name *</label>
+              <input type="text" id="reg-name" class="form-input" placeholder="e.g. Rahul Verma" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-blood">Blood Group *</label>
+              <select id="reg-blood" class="form-select" required>
+                <option value="O+">O+ (Common)</option>
+                <option value="O-">O- (Universal)</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Email Address *</label>
+              <input type="email" id="reg-email" class="form-input" placeholder="rahul@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Phone Number *</label>
+              <input type="tel" id="reg-phone" class="form-input" placeholder="+91 98765 00000" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-city">City</label>
+              <input type="text" id="reg-city" class="form-input" value="Patiala" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-area">Area / Locality</label>
+              <input type="text" id="reg-area" class="form-input" placeholder="e.g. Urban Estate, Phase 2" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-pass">Password *</label>
+              <input type="password" id="reg-pass" class="form-input" placeholder="Min 6 characters" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-pass-confirm">Confirm Password *</label>
+              <input type="password" id="reg-pass-confirm" class="form-input" placeholder="Repeat password" required>
+            </div>
+          </div>
+
+          <div id="signup-error-box" class="form-error mb-3" style="display: none; padding: 10px 12px; background: var(--emergency-bg); border: 1px solid var(--emergency-border); border-radius: var(--radius-sm); margin-bottom: 16px;"></div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btn-signup-submit" style="width: 100%; padding: 11px;">
+            Complete Donor Registration
+          </button>
+        </form>
+
+        <div class="auth-footer-nav">
+          Already registered? <a href="login.html">Sign in here</a>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--text-muted);">
+        Client-side SHA-256 Web Crypto hashing. Passwords are never stored in plain text.
+      </div>
+    </div>
+
+    <!-- Banner Side -->
+    <div class="auth-banner-side">
+      <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--crimson-300);">
+        Community Impact
+      </div>
+
+      <div class="auth-visual-hero">
+        <div class="auth-3d-symbol" style="display:flex;align-items:center;justify-content:center;background:radial-gradient(circle, rgba(220,38,38,0.2) 0%, rgba(15,23,42,0.6) 80%);border-radius:24px;width:80px;height:80px;margin:0 auto 1.25rem;border:1px solid rgba(239,68,68,0.3);box-shadow:0 12px 30px rgba(220,38,38,0.25);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <div class="auth-insight-card">
+          <div class="auth-insight-label">Why Register?</div>
+          <div class="auth-insight-quote">
+            "When you register in our active donor ledger, emergency trauma centers can reach eligible donors in your blood type within minutes during unexpected shortages."
+          </div>
+        </div>
+
+        <div class="auth-metrics-grid">
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">100%</div>
+            <div class="auth-metric-lbl">Confidential</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">Zero</div>
+            <div class="auth-metric-lbl">Commercial Sale</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">Instant</div>
+            <div class="auth-metric-lbl">Slot Booking</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--slate-400);">
+        Rakt-Setu Healthcare Infrastructure &bull; Voluntary Donor Protection
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script>
+    (async () => {
+      await Guard.redirectIfAuthenticated();
+    })();
+
+    const form = document.getElementById('form-donor-signup');
+    const errorBox = document.getElementById('signup-error-box');
+    const submitBtn = document.getElementById('btn-signup-submit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      const name = document.getElementById('reg-name').value.trim();
+      const bloodGroup = document.getElementById('reg-blood').value;
+      const email = document.getElementById('reg-email').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const city = document.getElementById('reg-city').value.trim();
+      const area = document.getElementById('reg-area').value.trim();
+      const password = document.getElementById('reg-pass').value;
+      const confirmPassword = document.getElementById('reg-pass-confirm').value;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Hashing and creating profile...';
+
+      const res = await Auth.register({
+        name,
+        email,
+        password,
+        confirmPassword,
+        role: 'DONOR',
+        bloodGroup,
+        phone,
+        city,
+        area
+      });
+
+      if (res.success) {
+        alert("Registration successful! You can now log in with your credentials.");
+        window.location.href = 'login.html';
+      } else {
+        errorBox.textContent = res.message;
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Complete Donor Registration';
+      }
+    });
+  </script>
+</body>
+</html>

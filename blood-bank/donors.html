@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Registry &amp; Drives | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/blood-bank.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">Voluntary Donor Registry</h1>
+            <p class="page-header-subtitle">Manage facility-registered donors, schedule mobile blood donation camps, and dispatch priority drive invitations.</p>
+          </div>
+          <div class="page-header-actions">
+            <span class="topbar-status-chip">
+              <span class="status-dot pulse"></span>
+              <span>Central Ledger Active</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Registered Voluntary Donors</h3>
+              <div class="card-subtitle">Active local community lifesavers</div>
+            </div>
+          </div>
+
+          <div class="table-container" style="border: none; border-radius: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Donor Name</th>
+                  <th>Blood Group</th>
+                  <th>Contact Number</th>
+                  <th>City / Sector</th>
+                  <th>Donation History</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="bloodbank-donors-table">
+                <!-- Rendered by BloodBankEngine.renderDonors -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <script src="../js/data.js?v=2.3"></script>
+  <script src="../js/storage.js?v=2.3"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js?v=2.3"></script>
+  <script src="../js/guard.js?v=2.3"></script>
+  <script src="../js/components.js?v=2.3"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/blood-bank.js?v=2.3"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("BLOOD_BANK", "login.html");
+      if (session) {
+      UIComponents.initShell("BLOOD_BANK", "donors", "Donor Registry");
+      await BloodBankEngine.renderDonors();
+    
+      }
+    })();
+  </script>
+</body>
+</html>

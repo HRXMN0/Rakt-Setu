@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Bank Depot Console | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/blood-bank.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in">
+        <!-- Consistent Page Header -->
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">Depot Overview</h1>
+            <p class="page-header-subtitle">Regional cold-chain blood logistics, component batch management, and hospital fulfillment console.</p>
+          </div>
+          <div class="page-header-actions">
+            <a href="requests.html" class="btn btn-primary btn-sm">
+              View Order Queue
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Depot Banner -->
+        <div class="bloodbank-hero-banner">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="badge badge-purple">Central Cold-Storage Hub</span>
+              <span class="badge badge-slate">FDA Licensed Facility</span>
+            </div>
+            <h3 class="text-xl font-bold text-primary" id="bb-name-title">
+              Patiala Central Blood Centre
+            </h3>
+            <p class="text-xs text-secondary mt-1 max-width-md">
+              Regional cold-chain logistics and blood component distribution console. Real-time rack temperature monitoring and hospital order dispatch.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="cold-chain-temp-chip" id="bb-temp-status">
+              <span class="rack-temp-indicator"></span> Cold Chain: 3.8 °C
+            </span>
+            <div class="flex gap-2 mt-1">
+              <a href="inventory.html" class="btn btn-secondary btn-sm">
+                Manage Batches
+              </a>
+              <a href="emergency-network.html" class="btn btn-ghost btn-sm">
+                Regional SOS →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Stat KPI Cards -->
+        <div class="grid grid-cols-3 gap-6 mb-8">
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">Depot Stock Total</span>
+              <div class="stat-card-icon stat-icon-purple">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.69 17.5A2 2 0 0 0 6.26 21h11.48a2 2 0 0 0 1.57-3.5L14 9.31V2"></path><line x1="8.5" y1="2" x2="15.5" y2="2"></line><line x1="14" y1="9.31" x2="10" y2="9.31"></line></svg>
+              </div>
+            </div>
+            <div class="stat-card-value" id="stat-bb-total-stock">Loading...</div>
+            <div class="stat-card-meta text-emerald">
+              <span>✓ Stored across 8 temperature racks</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">Reserved For Active Orders</span>
+              <div class="stat-card-icon stat-icon-amber">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+            </div>
+            <div class="stat-card-value" id="stat-bb-reserved">38 Units</div>
+            <div class="stat-card-meta text-muted">
+              <span>Allocated to trauma OT cases</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-card-label">Hospital Requisitions Queue</span>
+              <div class="stat-card-icon stat-icon-crimson">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg>
+              </div>
+            </div>
+            <div class="stat-card-value text-crimson" id="stat-bb-pending-count">0</div>
+            <div class="stat-card-meta text-sky">
+              <span>Awaiting dispatch allocation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Column Layout: Shortage Alerts & Hospital Requisition Queue -->
+        <div class="grid grid-cols-12 gap-6">
+          <div style="grid-column: span 5;">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Regional Shortage Alerts</h3>
+                  <div class="card-subtitle">Depot inventory warnings</div>
+                </div>
+              </div>
+              <div class="card-body" id="dashboard-shortage-alerts">
+                <!-- Injected by BloodBankEngine -->
+              </div>
+            </div>
+          </div>
+
+          <div style="grid-column: span 7;">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Incoming Hospital Orders</h3>
+                  <div class="card-subtitle">Immediate allocation requests</div>
+                </div>
+                <a href="requests.html" class="btn btn-ghost btn-sm">Full Queue →</a>
+              </div>
+              <div class="table-container" style="border: none; border-radius: 0;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Hospital</th>
+                      <th>Component</th>
+                      <th>Qty</th>
+                      <th>Priority</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dashboard-req-table">
+                    <!-- Injected by BloodBankEngine -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <script src="../js/data.js?v=2.3"></script>
+  <script src="../js/storage.js?v=2.3"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js?v=2.3"></script>
+  <script src="../js/guard.js?v=2.3"></script>
+  <script src="../js/components.js?v=2.3"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/blood-bank.js?v=2.3"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("BLOOD_BANK", "login.html");
+      if (session) {
+      UIComponents.initShell("BLOOD_BANK", "dashboard", "Depot Overview");
+      await BloodBankEngine.renderDashboard();
+    
+      }
+    })();
+  </script>
+</body>
+</html>

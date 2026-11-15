@@ -1,0 +1,118 @@
+/* ==========================================================================
+   RAKT-SETU HOSPITAL CLINICAL PORTAL STYLES
+   ========================================================================== */
+
+.hospital-hero-banner {
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  gap: 20px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.hospital-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--info-color);
+}
+
+@media (max-width: 768px) {
+  .hospital-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
+
+.clinical-readiness-chip {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  color: var(--success-color);
+  font-weight: 650;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Inventory Matrix Cards */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .inventory-grid { grid-template-columns: 1fr; }
+}
+
+.inventory-group-card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+}
+
+.inventory-group-card:hover {
+  border-color: var(--slate-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.inventory-group-card.low-stock {
+  border-left: 3px solid var(--emergency-color);
+  background: #FFFBFB;
+}
+
+.stock-count-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 0.8125rem;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.stock-count-row:last-child {
+  border-bottom: none;
+}
+
+/* Emergency Dispatch Live Card */
+.emergency-stat-card {
+  background: var(--surface-white);
+  border: 1px solid var(--emergency-border);
+  border-left: 4px solid var(--emergency-color);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.emergency-countdown {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--emergency-color);
+  background: var(--emergency-bg);
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+  display: inline-block;
+}

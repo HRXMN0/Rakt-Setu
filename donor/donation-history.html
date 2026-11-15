@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donation History | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/donor.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">My Donation History</h1>
+            <p class="page-header-subtitle">Official records of your voluntary contributions, scheduled appointments, and verified digital certificates.</p>
+          </div>
+          <div class="page-header-actions">
+            <a href="schedule-donation.html" class="btn btn-primary btn-sm">+ Book Next Donation</a>
+          </div>
+        </div>
+
+        <!-- Scheduled Appointments & Active Passes -->
+        <div class="card mb-6" style="margin-bottom: 24px;">
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 class="card-title">Scheduled Appointments &amp; Digital Passes</h3>
+              <div class="card-subtitle" id="appointments-total-count">Active donation bookings and official collection slips</div>
+            </div>
+            <a href="appointments.html" class="btn btn-secondary btn-sm" style="font-size: 0.75rem;">Manage All Appointments &rarr;</a>
+          </div>
+
+          <div class="table-container" style="border: none; border-radius: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Pass Code</th>
+                  <th>Appointment Window</th>
+                  <th>Collection Center</th>
+                  <th>Donation Type</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="appointments-table-body">
+                <!-- Injected by DonorEngine.renderHistory -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Completed Donations Log -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Completed Donations Log</h3>
+              <div class="card-subtitle" id="history-total-count">Authenticated by Regional Healthcare Centers</div>
+            </div>
+          </div>
+
+          <div class="table-container" style="border: none; border-radius: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Donation Date</th>
+                  <th>Collection Center</th>
+                  <th>Component Type</th>
+                  <th>Quantity</th>
+                  <th>Laboratory Screening</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="history-table-body">
+                <!-- Injected by DonorEngine.renderHistory -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <!-- Pass Modal Mount -->
+  <div id="pass-modal-backdrop" class="modal-backdrop" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.65); z-index: 1050; align-items: center; justify-content: center; padding: 16px;">
+    <div class="modal-card" style="background: #ffffff; border-radius: 16px; max-width: 500px; width: 100%; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto;">
+      <button type="button" onclick="document.getElementById('pass-modal-backdrop').style.display='none'" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+      <div id="pass-modal-content" style="padding: 24px;"></div>
+    </div>
+  </div>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <script src="../js/data.js?v=2.2"></script>
+  <script src="../js/storage.js?v=2.2"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js?v=2.2"></script>
+  <script src="../js/guard.js?v=2.2"></script>
+  <script src="../js/components.js?v=2.2"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/donor.js?v=2.2"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("DONOR", "login.html");
+      if (session) {
+      UIComponents.initShell("DONOR", "history", "Donation History");
+      await DonorEngine.renderHistory();
+    
+      }
+    })();
+  </script>
+</body>
+</html>

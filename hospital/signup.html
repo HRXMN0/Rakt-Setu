@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-hospital">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Facility Registration | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- Form Side -->
+    <div class="auth-form-side" style="padding-top: 32px; padding-bottom: 32px;">
+      <div>
+        <a href="../index.html" class="auth-brand">
+          <div class="auth-brand-logo" style="background: var(--info-color); display:flex; align-items:center; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/><path d="M3 21h18"/><path d="M9 8h6"/><path d="M12 5v6"/></svg>
+          </div>
+          <div class="auth-brand-text">Rakt-Setu <span style="font-weight: 500; font-size: 0.8rem; color: var(--info-color); margin-left: 4px;">Hospital</span></div>
+        </a>
+      </div>
+
+      <div class="auth-card" style="max-width: 440px;">
+        <div class="auth-header">
+          <h1 class="auth-title">Register Medical Center</h1>
+          <p class="auth-desc">Integrate your hospital or clinic into the regional emergency blood requisition network.</p>
+        </div>
+
+        <form id="form-hospital-signup">
+          <div class="form-group">
+            <label class="form-label" for="reg-hosp-name">Hospital / Center Name *</label>
+            <input type="text" id="reg-hosp-name" class="form-input" placeholder="e.g. City Multi-Specialty Hospital" required>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-license">NABH / State License *</label>
+              <input type="text" id="reg-license" class="form-input" placeholder="PB-NABH-2026-XXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-type">Facility Type *</label>
+              <select id="reg-type" class="form-select" required>
+                <option value="Tertiary Care & Trauma">Tertiary Care & Trauma</option>
+                <option value="Multi-Specialty">Multi-Specialty Hospital</option>
+                <option value="General Hospital">General Hospital</option>
+                <option value="Maternity & Surgical">Maternity & Surgical Center</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Official Admin Email *</label>
+              <input type="email" id="reg-email" class="form-input" placeholder="admin@hospital.org" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Emergency Hotline *</label>
+              <input type="tel" id="reg-phone" class="form-input" placeholder="+91 175 220 0000" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-city">City</label>
+              <input type="text" id="reg-city" class="form-input" value="Patiala" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-area">Area / District</label>
+              <input type="text" id="reg-area" class="form-input" placeholder="e.g. Sangrur Road / Rajpura Road" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-pass">Password *</label>
+              <input type="password" id="reg-pass" class="form-input" placeholder="Min 6 characters" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-pass-confirm">Confirm Password *</label>
+              <input type="password" id="reg-pass-confirm" class="form-input" placeholder="Repeat password" required>
+            </div>
+          </div>
+
+          <div id="signup-error-box" class="form-error mb-3" style="display: none; padding: 10px 12px; background: var(--emergency-bg); border: 1px solid var(--emergency-border); border-radius: var(--radius-sm); margin-bottom: 16px;"></div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btn-signup-submit" style="width: 100%; padding: 11px;">
+            Register Hospital Account
+          </button>
+        </form>
+
+        <div class="auth-footer-nav">
+          Already registered? <a href="login.html" style="color: var(--info-color);">Sign in to Hospital Portal</a>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--text-muted);">
+        Secured with SHA-256 Web Crypto Hashing. Zero external server dependencies.
+      </div>
+    </div>
+
+    <!-- Banner Side -->
+    <div class="auth-banner-side">
+      <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #93C5FD;">
+        Clinical Integration
+      </div>
+
+      <div class="auth-visual-hero">
+        <div class="auth-3d-symbol" style="display:flex;align-items:center;justify-content:center;background:radial-gradient(circle, rgba(14,165,233,0.2) 0%, rgba(15,23,42,0.6) 80%);border-radius:24px;width:80px;height:80px;margin:0 auto 1.25rem;border:1px solid rgba(56,189,248,0.3);box-shadow:0 12px 30px rgba(14,165,233,0.25);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/><path d="M3 21h18"/><path d="M9 8h6"/><path d="M12 5v6"/></svg>
+        </div>
+        <div class="auth-insight-card">
+          <div class="auth-insight-label">Network Capability</div>
+          <div class="auth-insight-quote">
+            "Registered medical centers gain instant transparency into cold-chain depot reserves with fast-track STAT delivery coordination."
+          </div>
+        </div>
+
+        <div class="auth-metrics-grid">
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">Instant</div>
+            <div class="auth-metric-lbl">Order Queue</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">Direct</div>
+            <div class="auth-metric-lbl">Courier Tracking</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">100%</div>
+            <div class="auth-metric-lbl">Digital Audit Trail</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--slate-400);">
+        Rakt-Setu Healthcare Infrastructure &bull; NABH Compliant Workflow
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script>
+    (async () => {
+      await Guard.redirectIfAuthenticated();
+    })();
+
+    const form = document.getElementById('form-hospital-signup');
+    const errorBox = document.getElementById('signup-error-box');
+    const submitBtn = document.getElementById('btn-signup-submit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      const hospName = document.getElementById('reg-hosp-name').value.trim();
+      const license = document.getElementById('reg-license').value.trim();
+      const hospType = document.getElementById('reg-type').value;
+      const email = document.getElementById('reg-email').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const city = document.getElementById('reg-city').value.trim();
+      const area = document.getElementById('reg-area').value.trim();
+      const password = document.getElementById('reg-pass').value;
+      const confirmPassword = document.getElementById('reg-pass-confirm').value;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Registering hospital...';
+
+      const res = await Auth.register({
+        name: hospName,
+        hospitalName: hospName,
+        email,
+        password,
+        confirmPassword,
+        role: 'HOSPITAL',
+        license,
+        hospitalType: hospType,
+        phone,
+        city,
+        area
+      });
+
+      if (res.success) {
+        alert("Hospital registered successfully! You can now sign in.");
+        window.location.href = 'login.html';
+      } else {
+        errorBox.textContent = res.message;
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Register Hospital Account';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-blood-bank">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Bank Registration | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- Form Side -->
+    <div class="auth-form-side" style="padding-top: 32px; padding-bottom: 32px;">
+      <div>
+        <a href="../index.html" class="auth-brand">
+          <div class="auth-brand-logo" style="background: var(--purple-color); display:flex; align-items:center; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.62 18.2A2 2 0 0 0 6.36 21h11.28a2 2 0 0 0 1.74-2.8L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+          </div>
+          <div class="auth-brand-text">Rakt-Setu <span style="font-weight: 500; font-size: 0.8rem; color: var(--purple-color); margin-left: 4px;">Blood Bank</span></div>
+        </a>
+      </div>
+
+      <div class="auth-card" style="max-width: 440px;">
+        <div class="auth-header">
+          <h1 class="auth-title">Register Blood Depot</h1>
+          <p class="auth-desc">Register your licensed regional blood storage center to manage component batches and hospital distribution.</p>
+        </div>
+
+        <form id="form-bloodbank-signup">
+          <div class="form-group">
+            <label class="form-label" for="reg-bb-name">Blood Bank / Center Name *</label>
+            <input type="text" id="reg-bb-name" class="form-input" placeholder="e.g. Apex Regional Blood Center" required>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-license">FDA Drug License *</label>
+              <input type="text" id="reg-license" class="form-input" placeholder="FDA-PB-BB-XXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-capacity">Storage Capacity *</label>
+              <select id="reg-capacity" class="form-select" required>
+                <option value="1,000 Units">Up to 1,000 Units</option>
+                <option value="2,500 Units">1,000 - 2,500 Units</option>
+                <option value="5,000+ Units">5,000+ Units (Regional Hub)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Official Email *</label>
+              <input type="email" id="reg-email" class="form-input" placeholder="contact@bloodcenter.org" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Dispatch Desk Phone *</label>
+              <input type="tel" id="reg-phone" class="form-input" placeholder="+91 175 221 0000" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-city">City</label>
+              <input type="text" id="reg-city" class="form-input" value="Patiala" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-area">Operational Sector</label>
+              <input type="text" id="reg-area" class="form-input" placeholder="e.g. Urban Estate / Rajpura Road" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="reg-pass">Password *</label>
+              <input type="password" id="reg-pass" class="form-input" placeholder="Min 6 characters" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-pass-confirm">Confirm Password *</label>
+              <input type="password" id="reg-pass-confirm" class="form-input" placeholder="Repeat password" required>
+            </div>
+          </div>
+
+          <div id="signup-error-box" class="form-error mb-3" style="display: none; padding: 10px 12px; background: var(--emergency-bg); border: 1px solid var(--emergency-border); border-radius: var(--radius-sm); margin-bottom: 16px;"></div>
+
+          <button type="submit" class="btn btn-primary w-full" id="btn-signup-submit" style="width: 100%; padding: 11px;">
+            Register Blood Depot
+          </button>
+        </form>
+
+        <div class="auth-footer-nav">
+          Already registered? <a href="login.html" style="color: var(--purple-color);">Sign in to Blood Bank Portal</a>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--text-muted);">
+        Secured with SHA-256 Web Crypto Hashing. Pure browser-side architecture.
+      </div>
+    </div>
+
+    <!-- Banner Side -->
+    <div class="auth-banner-side">
+      <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #D8B4FE;">
+        Supply Chain Network
+      </div>
+
+      <div class="auth-visual-hero">
+        <div class="auth-3d-symbol" style="display:flex;align-items:center;justify-content:center;background:radial-gradient(circle, rgba(168,85,247,0.2) 0%, rgba(15,23,42,0.6) 80%);border-radius:24px;width:80px;height:80px;margin:0 auto 1.25rem;border:1px solid rgba(192,132,252,0.3);box-shadow:0 12px 30px rgba(168,85,247,0.25);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.62 18.2A2 2 0 0 0 6.36 21h11.28a2 2 0 0 0 1.74-2.8L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+        </div>
+        <div class="auth-insight-card">
+          <div class="auth-insight-label">Regional Supply Grid</div>
+          <div class="auth-insight-quote">
+            "Intelligent cold-chain rebalancing between surplus storage centers and trauma hospitals prevents critical shortage emergencies and stock wastage."
+          </div>
+        </div>
+
+        <div class="auth-metrics-grid">
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">100%</div>
+            <div class="auth-metric-lbl">Batch Traceable</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">Automated</div>
+            <div class="auth-metric-lbl">Order Queue</div>
+          </div>
+          <div class="auth-metric-item">
+            <div class="auth-metric-val">Zero</div>
+            <div class="auth-metric-lbl">Server Overhead</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.725rem; color: var(--slate-400);">
+        Rakt-Setu Blood Supply Grid &bull; FDA Regulated Platform
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script>
+    (async () => {
+      await Guard.redirectIfAuthenticated();
+    })();
+
+    const form = document.getElementById('form-bloodbank-signup');
+    const errorBox = document.getElementById('signup-error-box');
+    const submitBtn = document.getElementById('btn-signup-submit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      const bbName = document.getElementById('reg-bb-name').value.trim();
+      const license = document.getElementById('reg-license').value.trim();
+      const capacity = document.getElementById('reg-capacity').value;
+      const email = document.getElementById('reg-email').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const city = document.getElementById('reg-city').value.trim();
+      const area = document.getElementById('reg-area').value.trim();
+      const password = document.getElementById('reg-pass').value;
+      const confirmPassword = document.getElementById('reg-pass-confirm').value;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Registering blood depot...';
+
+      const res = await Auth.register({
+        name: bbName,
+        bloodBankName: bbName,
+        email,
+        password,
+        confirmPassword,
+        role: 'BLOOD_BANK',
+        license,
+        storageCapacity: capacity,
+        phone,
+        city,
+        area
+      });
+
+      if (res.success) {
+        alert("Blood Bank registered successfully! You can now sign in.");
+        window.location.href = 'login.html';
+      } else {
+        errorBox.textContent = res.message;
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Register Blood Depot';
+      }
+    });
+  </script>
+</body>
+</html>

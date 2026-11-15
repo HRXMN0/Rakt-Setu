@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inter-Hospital Blood Transfers | Rakt-Setu</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/hospital.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <div id="sidebar-mount"></div>
+
+    <div class="app-main">
+      <div id="topbar-mount"></div>
+
+      <main class="app-content animate-fade-in">
+        <div class="page-header">
+          <div>
+            <h1 class="page-header-title">Inter-Hospital Blood Unit Transfers</h1>
+            <p class="page-header-subtitle">Coordinate emergency component sharing and surgical rebalancing with regional partner hospitals.</p>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-primary btn-sm" id="btn-open-transfer-modal">+ Record Transfer</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Transfer Manifest Log</h3>
+              <div class="card-subtitle">Verified chain-of-custody transfer records</div>
+            </div>
+          </div>
+
+          <div class="table-container" style="border: none; border-radius: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Direction</th>
+                  <th>Partner Facility</th>
+                  <th>Component Details</th>
+                  <th>Quantity</th>
+                  <th>Verification</th>
+                  <th>Transfer Receipt</th>
+                </tr>
+              </thead>
+              <tbody id="transfers-table-body">
+                <!-- Rendered by HospitalEngine.renderTransfers -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <div id="mobile-nav-mount"></div>
+    </div>
+  </div>
+
+  <!-- Record Transfer Modal -->
+  <div class="modal-backdrop" id="modal-transfer-backdrop">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="card-title">Record Inter-Hospital Blood Transfer</h3>
+        <button class="btn btn-ghost btn-sm" id="btn-close-trf-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-transfer-modal">
+          <div class="grid grid-cols-2 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="trf-direction">Transfer Flow</label>
+              <select id="trf-direction" class="form-select">
+                <option value="OUTBOUND">OUTBOUND (Sent to Partner)</option>
+                <option value="INBOUND">INBOUND (Received from Partner)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="trf-partner">Partner Hospital</label>
+              <select id="trf-partner" class="form-select">
+                <option value="Amar Hospital, Patiala">Amar Hospital, Patiala (Bank Colony)</option>
+                <option value="Columbia Asia Hospital Patiala">Columbia Asia Hospital Patiala (Bhupindra Road)</option>
+                <option value="Government Medical College & Hospital, Patiala">Government Medical College &amp; Hospital, Patiala</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3">
+            <div class="form-group">
+              <label class="form-label" for="trf-blood-group">Blood Group</label>
+              <select id="trf-blood-group" class="form-select">
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="trf-component">Component</label>
+              <select id="trf-component" class="form-select">
+                <option value="Packed RBCs">Packed RBCs</option>
+                <option value="Whole Blood">Whole Blood</option>
+                <option value="Platelets">Platelets</option>
+                <option value="Plasma">Plasma</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="trf-units">Units</label>
+              <input type="number" id="trf-units" class="form-input" min="1" max="20" value="2" required>
+            </div>
+          </div>
+
+          <div class="modal-footer" style="padding-left: 0; padding-right: 0; margin-bottom: -1.25rem;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-cancel-trf-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Confirm Transfer Log</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/guard.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/print.js"></script>
+  <script src="../js/hospital.js"></script>
+  <script>
+    (async () => {
+      const session = await Guard.requireAuth("HOSPITAL", "login.html");
+      if (session) {
+      UIComponents.initShell("HOSPITAL", "transfers", "Blood Transfers");
+      await HospitalEngine.renderTransfers();
+      HospitalEngine.initTransferForm();
+
+      const modal = document.getElementById("modal-transfer-backdrop");
+      const openBtn = document.getElementById("btn-open-transfer-modal");
+      if (openBtn && modal) openBtn.onclick = () => modal.classList.add("open");
+      const closeBtn = document.getElementById("btn-close-trf-modal");
+      if (closeBtn && modal) closeBtn.onclick = () => modal.classList.remove("open");
+      const cancelBtn = document.getElementById("btn-cancel-trf-modal");
+      if (cancelBtn && modal) cancelBtn.onclick = () => modal.classList.remove("open");
+    
+      }
+    })();
+  </script>
+</body>
+</html>
