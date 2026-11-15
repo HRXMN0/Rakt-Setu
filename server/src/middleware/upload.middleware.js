@@ -121,6 +121,14 @@ const handleUpload = (fieldName = 'document', required = true) => {
     ]);
 
     return (req, res, next) => {
+        // Enforce persistent cloud storage in production mode
+        if (process.env.NODE_ENV === 'production') {
+            const { isCloudConfigured } = require('../services/storage.adapter');
+            if (!isCloudConfigured()) {
+                return errorResponse(res, 503, 'Service Unavailable: Persistent cloud object storage (AWS S3 or Cloudflare R2) is not configured. Serverless uploads require S3 credentials.');
+            }
+        }
+
         uploadMultiFields(req, res, (err) => {
             if (err instanceof multer.MulterError) {
                 if (err.code === 'LIMIT_FILE_SIZE') {

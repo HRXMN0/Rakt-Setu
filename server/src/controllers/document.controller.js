@@ -64,8 +64,13 @@ const uploadProfilePhoto = async (req, res, next) => {
             photoUrl: relativeUrl
         });
     } catch (err) {
-        if (req.file && req.file.path && fs.existsSync(req.file.path)) {
-            try { fs.unlinkSync(req.file.path); } catch (e) {}
+        if (req.file) {
+            if (req.file.path && fs.existsSync(req.file.path)) {
+                try { fs.unlinkSync(req.file.path); } catch (e) {}
+            }
+            if (req.file.filename) {
+                try { await require('../services/storage.adapter').removeFile(req.file.filename); } catch (e) {}
+            }
         }
         next(err);
     }
@@ -99,8 +104,13 @@ const uploadDocument = async (req, res, next) => {
 
         return successResponse(res, 201, 'Document uploaded successfully', { document: doc });
     } catch (err) {
-        if (req.file && req.file.path && fs.existsSync(req.file.path)) {
-            try { fs.unlinkSync(req.file.path); } catch (e) {}
+        if (req.file) {
+            if (req.file.path && fs.existsSync(req.file.path)) {
+                try { fs.unlinkSync(req.file.path); } catch (e) {}
+            }
+            if (req.file.filename) {
+                try { await require('../services/storage.adapter').removeFile(req.file.filename); } catch (e) {}
+            }
         }
         next(err);
     }

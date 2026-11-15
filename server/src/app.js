@@ -197,7 +197,9 @@ app.get('/', (req, res, next) => {
 // Serve static files only in local development or when explicitly enabled
 const shouldServeStatic = process.env.NODE_ENV !== 'production' || process.env.SERVE_STATIC === 'true';
 if (shouldServeStatic) {
-    const frontendRoot = path.resolve(__dirname, '../../');
+    const publicDir = path.resolve(__dirname, '../../public');
+    const rootDir = path.resolve(__dirname, '../../');
+    const frontendRoot = require('fs').existsSync(publicDir) ? publicDir : rootDir;
     app.use(express.static(frontendRoot));
 }
 

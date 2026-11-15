@@ -21,7 +21,8 @@ const runScrollSpyTests = async () => {
         console.log(`  ${icon} [${passed ? 'PASS' : 'FAIL'}] ${name}: ${message}`);
     };
 
-    const rootDir = path.resolve(__dirname, '../../');
+    const publicDir = path.resolve(__dirname, '../../public');
+    const rootDir = fs.existsSync(publicDir) ? publicDir : path.resolve(__dirname, '../../');
     const indexHtmlPath = path.join(rootDir, 'index.html');
     const cssPath = path.join(rootDir, 'css/landing-3d.css');
     const jsPath = path.join(rootDir, 'js/landing-3d.js');

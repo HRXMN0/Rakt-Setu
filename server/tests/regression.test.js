@@ -167,7 +167,8 @@ const runRegressionTests = async () => {
 
     // 42. Existing UI remains unchanged
     try {
-        const rootDir = path.resolve(__dirname, '../../');
+        const publicDir = path.resolve(__dirname, '../../public');
+        const rootDir = fs.existsSync(publicDir) ? publicDir : path.resolve(__dirname, '../../');
         const expectedFiles = [
             'index.html',
             'donor/dashboard.html',

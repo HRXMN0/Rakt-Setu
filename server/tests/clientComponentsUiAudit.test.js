@@ -50,7 +50,10 @@ const context = vm.createContext({
 
 // Load source modules into context
 const loadScript = (relativePath) => {
-    const fullPath = path.resolve(__dirname, '../../', relativePath);
+    let fullPath = path.resolve(__dirname, '../../public', relativePath);
+    if (!fs.existsSync(fullPath)) {
+        fullPath = path.resolve(__dirname, '../../', relativePath);
+    }
     let code = fs.readFileSync(fullPath, 'utf8');
     // Convert top-level const/let/var declarations to context properties
     code = code.replace(/^(?:const|let|var)\s+([A-Za-z0-9_]+)\s*=/gm, 'this.$1 =');
