@@ -153,6 +153,18 @@ app.get('/api/health', (req, res) => {
     });
 });
 
+// Database connection readiness middleware for serverless invocations and API requests
+const { connectDB } = require('./config/db');
+const ensureDbConnected = async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (err) {
+        return errorResponse(res, 503, 'Service Unavailable: Database connection could not be established.');
+    }
+};
+app.use('/api', ensureDbConnected);
+
 // 5. Mount API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/donors', donorRoutes);
@@ -163,9 +175,31 @@ app.use('/api/bloodbanks', hospitalRoutes);
 app.use('/api/bloodbank', hospitalRoutes);
 app.use('/api/documents', documentRoutes);
 
-// 6. Serve static files from frontend root
-const frontendRoot = path.resolve(__dirname, '../../');
-app.use(express.static(frontendRoot));
+// 6. Root endpoint for API metadata (supports JSON API clients and production standalone deployment)
+app.get('/', (req, res, next) => {
+    const isExplicitJson = req.headers.accept && req.headers.accept.includes('application/json');
+    const isProduction = process.env.NODE_ENV === 'production';
+    const shouldServeStatic = !isProduction || process.env.SERVE_STATIC === 'true';
+
+    if (shouldServeStatic && !isProduction && !isExplicitJson) {
+        return next();
+    }
+    return res.status(200).json({
+        success: true,
+        name: 'Rakt-Setu API',
+        version: '2.1.0',
+        environment: process.env.NODE_ENV || 'development',
+        status: 'operational',
+        health: '/api/health'
+    });
+});
+
+// Serve static files only in local development or when explicitly enabled
+const shouldServeStatic = process.env.NODE_ENV !== 'production' || process.env.SERVE_STATIC === 'true';
+if (shouldServeStatic) {
+    const frontendRoot = path.resolve(__dirname, '../../');
+    app.use(express.static(frontendRoot));
+}
 
 // 7. 404 Handler for undefined API routes
 app.all('/api/*', (req, res) => {

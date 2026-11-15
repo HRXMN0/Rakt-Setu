@@ -10,13 +10,14 @@ const runMongoTests = require('./mongodb.test');
 const runMulterTests = require('./multer.test');
 const runRegressionTests = require('./regression.test');
 const runProductionHardeningTests = require('./productionHardening.test');
+const runServerlessCompatibilityTests = require('./serverlessCompatibility.test');
 
 const main = async () => {
     console.log(`\n================================================================`);
     console.log(`  🩸 RAKT-SETU — EVALUATION 2 AUTOMATED TEST SUITE`);
     console.log(`================================================================`);
-    console.log(`  Target: 50 Comprehensive Production & Security Verification Checks`);
-    console.log(`  Tech:   Express.js, JWT, RBAC, MongoDB, Multer, Helmet, RateLimit`);
+    console.log(`  Target: 57 Comprehensive Production, Security & Serverless Checks`);
+    console.log(`  Tech:   Express.js, JWT, RBAC, MongoDB, Multer, Helmet, RateLimit, Serverless`);
     console.log(`================================================================\n`);
 
     const startTime = Date.now();
@@ -30,6 +31,7 @@ const main = async () => {
         const multerResults = await runMulterTests();
         const regResults = await runRegressionTests();
         const hardeningResults = await runProductionHardeningTests();
+        const serverlessResults = await runServerlessCompatibilityTests();
 
         const allResults = [
             ...authResults,
@@ -37,7 +39,8 @@ const main = async () => {
             ...mongoResults,
             ...multerResults,
             ...regResults,
-            ...hardeningResults
+            ...hardeningResults,
+            ...serverlessResults
         ];
 
         const total = allResults.length;

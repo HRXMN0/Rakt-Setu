@@ -14,6 +14,10 @@ const startServer = async () => {
         getJwtSecret();
 
         await connectDB();
+        const mongoose = require('mongoose');
+        const activeHost = mongoose.connection.host || 'unknown';
+        const activeDb = mongoose.connection.name || mongoose.connection.db?.databaseName || 'unknown';
+        const isExpectedDb = activeDb === 'raktsetu';
 
         server = app.listen(PORT, '0.0.0.0', () => {
             console.log(`\n======================================================`);
@@ -21,6 +25,8 @@ const startServer = async () => {
             console.log(`======================================================`);
             console.log(`  Port:        http://localhost:${PORT}`);
             console.log(`  Environment: ${process.env.NODE_ENV || 'development'}`);
+            console.log(`  Database:    ${activeDb} (Expected 'raktsetu': ${isExpectedDb})`);
+            console.log(`  Mongo Host:  ${activeHost}`);
             console.log(`  Health:      http://localhost:${PORT}/api/health`);
             console.log(`======================================================\n`);
         });

@@ -72,6 +72,14 @@ const register = async (req, res, next) => {
         }
 
         // 3. Prevent duplicate email registration
+        // Safe runtime diagnostic: Ensure User model is strictly querying raktsetu
+        const mongoose = require('mongoose');
+        const activeModelDb = User.db?.name || mongoose.connection.name;
+        if (activeModelDb !== 'raktsetu') {
+            console.error(`[DB Routing Error]: Registration rejected. Model bound to database '${activeModelDb}', expected 'raktsetu'.`);
+            return errorResponse(res, 500, `Database configuration error: Registration target is '${activeModelDb}' instead of 'raktsetu'.`);
+        }
+
         const existing = await User.findOne({ email: email.toLowerCase().trim() });
         if (existing) {
             return errorResponse(res, 409, 'An account with this email address already exists.');

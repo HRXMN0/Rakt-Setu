@@ -7,6 +7,12 @@ const Donation = require('../models/Donation');
 const Appointment = require('../models/Appointment');
 
 const seedInitialData = async () => {
+    const isProduction = process.env.NODE_ENV === 'production';
+    if (isProduction && process.env.ALLOW_PRODUCTION_SEED !== 'true') {
+        console.warn('[Seed]: Automatic or unauthorized seeding in PRODUCTION is strictly prohibited.');
+        return;
+    }
+
     try {
         const userCount = await User.countDocuments();
         if (userCount > 0) {
@@ -304,6 +310,33 @@ const seedInitialData = async () => {
         console.error('[Seed Error]:', err.message);
     }
 };
+
+// Standalone execution handler for explicit CLI setup: npm run seed
+if (require.main === module) {
+    const { connectDB, disconnectDB } = require('./db');
+    (async () => {
+        try {
+            console.log('[Setup]: Initiating explicit database setup and seeding...');
+            await connectDB();
+            await seedInitialData();
+
+            // Run role-isolation sanitization migration
+            console.log('[Setup]: Running role isolation sanitization migration...');
+            await User.updateMany({ role: 'DONOR' }, { $set: { hospitalName: null, hospitalId: null, bloodBankName: null, bloodBankId: null } });
+            await User.updateMany({ role: 'HOSPITAL_STAFF' }, { $set: { bloodBankName: null, bloodBankId: null } });
+            await User.updateMany({ role: 'ADMIN' }, { $set: { hospitalName: null, hospitalId: null } });
+            await User.updateMany({ role: 'SUPER_ADMIN' }, { $set: { hospitalId: null, bloodBankId: null } });
+            console.log('[Setup]: Role isolation migration complete.');
+
+            await disconnectDB();
+            console.log('[Setup]: Database setup completed successfully.');
+            process.exit(0);
+        } catch (setupErr) {
+            console.error('[Setup Fatal Error]:', setupErr.message);
+            process.exit(1);
+        }
+    })();
+}
 
 module.exports = seedInitialData;
 
