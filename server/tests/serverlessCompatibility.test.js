@@ -12,7 +12,7 @@
 const assert = require('assert');
 const request = require('supertest');
 const mongoose = require('mongoose');
-const { connectDB, disconnectDB } = require('../src/config/db');
+const { connectDB, disconnectDB, getMongoMemoryServerInstance } = require('../src/config/db');
 const seedInitialData = require('../src/config/seedData');
 const app = require('../src/app');
 const serverlessEntry = require('../api/index');
@@ -159,6 +159,120 @@ const runServerlessCompatibilityTests = async () => {
             'Root endpoint (/) provides standalone API service metadata',
             rootRes.status === 200 && rootRes.body.name === 'Rakt-Setu API',
             `API Name: ${rootRes.body?.name}, Health: ${rootRes.body?.health}`
+        );
+
+        // --- Test 6: Production + Atlas failure does NOT initialize MongoMemoryServer ---
+        console.log('\n--- Checking Production MongoMemoryServer Prohibition ---');
+        await disconnectDB();
+        const savedNodeEnv = process.env.NODE_ENV;
+        const savedVercel = process.env.VERCEL;
+        const savedMongoUri = process.env.MONGODB_URI;
+        const savedEnableMem = process.env.ENABLE_IN_MEMORY_DB;
+        try {
+            process.env.NODE_ENV = 'production';
+            delete process.env.VERCEL;
+            process.env.MONGODB_URI = 'mongodb://127.0.0.1:9999/unreachable_prod_db';
+            delete process.env.ENABLE_IN_MEMORY_DB;
+
+            let threwExpectedError = false;
+            try {
+                await connectDB();
+            } catch (e) {
+                threwExpectedError = true;
+            }
+
+            const mmsInstance = getMongoMemoryServerInstance();
+            const isProhibited = threwExpectedError && mmsInstance === null && mongoose.connection.readyState === 0;
+
+            record(
+                'Production + Atlas failure strictly rejects connection without initializing MongoMemoryServer',
+                isProhibited,
+                `Threw error: ${threwExpectedError}, MMS instance: ${mmsInstance}, readyState: ${mongoose.connection.readyState}`
+            );
+        } finally {
+            process.env.NODE_ENV = savedNodeEnv;
+            if (savedVercel !== undefined) process.env.VERCEL = savedVercel; else delete process.env.VERCEL;
+            process.env.MONGODB_URI = savedMongoUri;
+            if (savedEnableMem !== undefined) process.env.ENABLE_IN_MEMORY_DB = savedEnableMem; else delete process.env.ENABLE_IN_MEMORY_DB;
+        }
+
+        // --- Test 7: Vercel + Atlas failure does NOT initialize MongoMemoryServer ---
+        console.log('\n--- Checking Vercel MongoMemoryServer Prohibition ---');
+        await disconnectDB();
+        try {
+            process.env.NODE_ENV = 'development';
+            process.env.VERCEL = '1';
+            process.env.MONGODB_URI = 'mongodb://127.0.0.1:9999/unreachable_vercel_db';
+            process.env.ENABLE_IN_MEMORY_DB = 'true'; // Even if explicitly enabled in env, VERCEL=1 must forbid it
+
+            let threwExpectedError = false;
+            try {
+                await connectDB();
+            } catch (e) {
+                threwExpectedError = true;
+            }
+
+            const mmsInstance = getMongoMemoryServerInstance();
+            const isProhibited = threwExpectedError && mmsInstance === null && mongoose.connection.readyState === 0;
+
+            record(
+                'Vercel (VERCEL=1) + Atlas failure strictly rejects connection without initializing MongoMemoryServer',
+                isProhibited,
+                `Threw error: ${threwExpectedError}, MMS instance: ${mmsInstance}, readyState: ${mongoose.connection.readyState}`
+            );
+        } finally {
+            process.env.NODE_ENV = savedNodeEnv;
+            if (savedVercel !== undefined) process.env.VERCEL = savedVercel; else delete process.env.VERCEL;
+            process.env.MONGODB_URI = savedMongoUri;
+            if (savedEnableMem !== undefined) process.env.ENABLE_IN_MEMORY_DB = savedEnableMem; else delete process.env.ENABLE_IN_MEMORY_DB;
+        }
+
+        // --- Test 8: Development/test can still use the explicitly enabled test fallback ---
+        console.log('\n--- Checking Explicitly Enabled Test Fallback ---');
+        await disconnectDB();
+        try {
+            process.env.NODE_ENV = 'development';
+            delete process.env.VERCEL;
+            process.env.ENABLE_IN_MEMORY_DB = 'true';
+            process.env.MONGODB_URI = 'mongodb://127.0.0.1:9999/unreachable_local_dev_db';
+
+            await connectDB();
+            const mmsInstance = getMongoMemoryServerInstance();
+            const isFallbackWorking = mmsInstance !== null && mongoose.connection.readyState === 1;
+
+            record(
+                'Development/test successfully utilizes explicitly enabled in-memory test fallback',
+                isFallbackWorking,
+                `MMS active: ${mmsInstance !== null}, readyState: ${mongoose.connection.readyState}`
+            );
+        } finally {
+            await disconnectDB();
+            process.env.NODE_ENV = savedNodeEnv;
+            if (savedVercel !== undefined) process.env.VERCEL = savedVercel; else delete process.env.VERCEL;
+            process.env.MONGODB_URI = savedMongoUri;
+            if (savedEnableMem !== undefined) process.env.ENABLE_IN_MEMORY_DB = savedEnableMem; else delete process.env.ENABLE_IN_MEMORY_DB;
+        }
+
+        // --- Test 9: Successful Atlas connection is reused across warm requests ---
+        console.log('\n--- Checking Warm Atlas Connection Reuse ---');
+        await disconnectDB();
+        process.env.NODE_ENV = savedNodeEnv;
+        if (savedVercel !== undefined) process.env.VERCEL = savedVercel; else delete process.env.VERCEL;
+        process.env.MONGODB_URI = savedMongoUri;
+
+        const connInitial = await connectDB();
+        const startWarm = Date.now();
+        const connWarm1 = await connectDB();
+        const connWarm2 = await connectDB();
+        const connWarm3 = await connectDB();
+        const warmDuration = Date.now() - startWarm;
+
+        const allReused = (connInitial === connWarm1) && (connWarm1 === connWarm2) && (connWarm2 === connWarm3) && (connInitial.readyState === 1);
+
+        record(
+            'Successful Atlas connection is reused across warm requests with zero overhead',
+            allReused && warmDuration < 100,
+            `Duration for 3 warm calls: ${warmDuration}ms, readyState: ${connInitial.readyState}`
         );
 
     } catch (err) {

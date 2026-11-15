@@ -16,7 +16,7 @@ const main = async () => {
     console.log(`\n================================================================`);
     console.log(`  🩸 RAKT-SETU — EVALUATION 2 AUTOMATED TEST SUITE`);
     console.log(`================================================================`);
-    console.log(`  Target: 57 Comprehensive Production, Security & Serverless Checks`);
+    console.log(`  Target: 61 Comprehensive Production, Security & Serverless Checks`);
     console.log(`  Tech:   Express.js, JWT, RBAC, MongoDB, Multer, Helmet, RateLimit, Serverless`);
     console.log(`================================================================\n`);
 
@@ -63,7 +63,7 @@ const main = async () => {
                 console.log(`  - [Test ${f.num}] ${f.name}: ${f.details}`);
             });
         } else {
-            console.log(`\n🎉 ALL 42 MANDATORY EVALUATION 2 TESTS PASSED PERFECTLY!\n`);
+            console.log(`\n🎉 ALL 61 COMPREHENSIVE EVALUATION 2 TESTS PASSED PERFECTLY!\n`);
         }
 
         await disconnectDB();
